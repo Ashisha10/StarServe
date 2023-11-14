@@ -21,85 +21,93 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kAccentColour,
-      body: Padding(
-        padding: const EdgeInsets.all(50.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              // kGapFiller,
-              const SizedBox.square(
-                dimension: 200.0,
-                child: Image(
-                  image: AssetImage("assets/images/StarServeLogo.png"),
-                ),
-              ),
-              kGapFiller,
-              Text(
-                "StarServe",
-                style: appBranding.copyWith(fontSize: 50.0),
-              ),
-              kGapFiller,
-              TextField(
-                // MAIL FIELD
-                cursorColor: kFGColour,
-                style: kInputTextStyle,
-                decoration: kInputField.copyWith(
-                  hintText: "Enter Your Mail ID Here",
-                  prefixIcon: const Icon(
-                    Icons.mail_outline_rounded,
-                    color: kFGColour,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/star.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(50.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                // kGapFiller,
+                const SizedBox.square(
+                  dimension: 200.0,
+                  child: Image(
+                    image: AssetImage("assets/images/StarServeLogoNoBG.png"),
                   ),
                 ),
-              ),
-              kGapFiller,
-              TextField(
-                // PASSWORD FIELD
-                obscureText: hidePswd,
-                cursorColor: kFGColour,
-                style: kInputTextStyle,
-                decoration: kInputField.copyWith(
-                  hintText: "Enter Your Password Here",
-                  prefixIcon: const Icon(
-                    Icons.key_rounded,
-                    color: kFGColour,
-                  ),
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      if (hidePswd == false) {
-                        setState(() {
-                          hidePswd = true;
-                        });
-                      } else {
-                        setState(() {
-                          hidePswd = false;
-                        });
-                      }
-                    },
-                    child: Icon(
-                      hidePswd
-                          ? Icons.remove_red_eye_outlined
-                          : Icons.remove_red_eye,
-                      color: kFGColour,
+                kGapFiller,
+                Text(
+                  "StarServe",
+                  style: appBranding.copyWith(fontSize: 50.0),
+                ),
+                kGapFiller,
+                TextField(
+                  // MAIL FIELD
+                  cursorColor: navyBlue,
+                  style: kInputTextStyle,
+                  decoration: kInputField.copyWith(
+                    hintText: "Enter Your Mail ID Here",
+                    prefixIcon: const Icon(
+                      Icons.mail_outline_rounded,
+                      color: navyBlue,
                     ),
                   ),
                 ),
-              ),
-              kGapFiller,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  RoundedButton(
-                    buttonCol: kBGColour,
-                    buttonTextCol: kFGColour,
-                    buttonText: "Login",
-                    pressedAction: () {
-                      Navigator.pushNamed(context, FeedPage.id);
-                    },
+                kGapFiller,
+                TextField(
+                  // PASSWORD FIELD
+                  obscureText: hidePswd,
+                  cursorColor: kFGColour,
+                  style: kInputTextStyle,
+                  decoration: kInputField.copyWith(
+                    hintText: "Enter Your Password Here",
+                    prefixIcon: const Icon(
+                      Icons.key_rounded,
+                      color: navyBlue,
+                    ),
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        if (hidePswd == false) {
+                          setState(() {
+                            hidePswd = true;
+                          });
+                        } else {
+                          setState(() {
+                            hidePswd = false;
+                          });
+                        }
+                      },
+                      child: Icon(
+                        hidePswd
+                            ? Icons.remove_red_eye_outlined
+                            : Icons.remove_red_eye,
+                        color: navyBlue,
+                      ),
+                    ),
                   ),
-                ],
-              ),
-            ],
+                ),
+                kGapFiller,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    RoundedButton(
+                      buttonCol: kBGColour,
+                      buttonTextCol: kFGColour,
+                      buttonText: "Login",
+                      pressedAction: () {
+                        Navigator.pushNamed(context, FeedPage.id);
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
