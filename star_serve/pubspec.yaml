@@ -62,6 +62,7 @@ flutter:
 
   assets:
      - images/flyingRocket.gif
+     - images/
      - assets/images/
      - assets/fonts/
      - assets/icons/
