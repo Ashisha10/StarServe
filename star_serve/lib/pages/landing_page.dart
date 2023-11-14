@@ -22,7 +22,7 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       //backgroundColor: kBGColour,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/star.jpg"),
             fit: BoxFit.cover,
@@ -52,8 +52,8 @@ class _LandingPageState extends State<LandingPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     RoundedButton(
-                      buttonCol: kAccentColour,
-                      buttonTextCol: kFGColour,
+                      buttonCol: navyBlue,
+                      buttonTextCol: lightYellow,
                       buttonText: "Register",
                       pressedAction: () {
                         Navigator.pushNamed(context, RegisterPage.id);
@@ -61,8 +61,8 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                     // kGapFiller,
                     RoundedButton(
-                      buttonCol: kFGColour,
-                      buttonTextCol: kAccentColour,
+                      buttonCol: deepYellow,
+                      buttonTextCol: navyBlue,
                       buttonText: "Login",
                       pressedAction: () {
                         Navigator.pushNamed(context, LoginPage.id);

@@ -17,6 +17,7 @@ class StarServe extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const SplashScreen(),
+      debugShowCheckedModeBanner: false,
       // theme: ThemeData(
       // fontFamily: "Sacramento-Regular.ttf",
       // ),
