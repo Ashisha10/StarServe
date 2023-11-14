@@ -61,7 +61,7 @@ flutter:
   uses-material-design: true
 
   assets:
-     - images/flyingRocket.gif
+     - images/
      - assets/images/
      - assets/fonts/
      - assets/icons/
