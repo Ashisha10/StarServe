@@ -4,6 +4,7 @@ import 'package:star_serve/pages/login_page.dart';
 import 'package:star_serve/page_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages/register_page.dart';
+import 'package:star_serve/pages/splash_screen.dart';
 // import 'package:star_serve/pages_o/ongoing_events.dart';
 import 'package:star_serve/pages_v/ongoing_events.dart';
 
@@ -15,9 +16,9 @@ class StarServe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const LandingPage(),
+      home: const SplashScreen(),
       // theme: ThemeData(
-        // fontFamily: "Sacramento-Regular.ttf",
+      // fontFamily: "Sacramento-Regular.ttf",
       // ),
       initialRoute: LandingPage.id,
       routes: {
