@@ -3,6 +3,7 @@ import 'package:star_serve/pages/profile_page.dart';
 import 'package:star_serve/pages/login_page.dart';
 import 'package:star_serve/page_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:star_serve/pages/register_page.dart';
 // import 'package:star_serve/pages_o/ongoing_events.dart';
 import 'package:star_serve/pages_v/ongoing_events.dart';
 
@@ -21,6 +22,7 @@ class StarServe extends StatelessWidget {
       initialRoute: LandingPage.id,
       routes: {
         LoginPage.id: (context) => const LoginPage(),
+        RegisterPage.id: (context) => const RegisterPage(),
         FeedPage.id: (context) => const FeedPage(),
         // RequestsPage.id: (context) => const RequestsPage(),
         ProfilePage.id: (context) => const ProfilePage(),

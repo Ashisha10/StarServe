@@ -3,6 +3,7 @@ import 'package:star_serve/components/rounded_button.dart';
 import 'package:star_serve/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages/register_page.dart';
+import 'package:star_serve/pages_o/ongoing_events.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -19,13 +20,14 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBGColour,
+      backgroundColor: kAccentColour,
       body: Padding(
         padding: const EdgeInsets.all(50.0),
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              kGapFiller,
+              // kGapFiller,
               const SizedBox.square(
                 dimension: 200.0,
                 child: Image(
@@ -39,24 +41,28 @@ class _LoginPageState extends State<LoginPage> {
               ),
               kGapFiller,
               TextField(
-                cursorColor: kBGColour,
+                // MAIL FIELD
+                cursorColor: kFGColour,
                 style: kInputTextStyle,
                 decoration: kInputField.copyWith(
+                  hintText: "Enter Your Mail ID Here",
                   prefixIcon: const Icon(
                     Icons.mail_outline_rounded,
-                    color: kBGColour,
+                    color: kFGColour,
                   ),
                 ),
               ),
               kGapFiller,
               TextField(
+                // PASSWORD FIELD
                 obscureText: hidePswd,
-                cursorColor: kBGColour,
+                cursorColor: kFGColour,
                 style: kInputTextStyle,
                 decoration: kInputField.copyWith(
+                  hintText: "Enter Your Password Here",
                   prefixIcon: const Icon(
                     Icons.key_rounded,
-                    color: kBGColour,
+                    color: kFGColour,
                   ),
                   suffixIcon: GestureDetector(
                     onTap: () {
@@ -74,31 +80,21 @@ class _LoginPageState extends State<LoginPage> {
                       hidePswd
                           ? Icons.remove_red_eye_outlined
                           : Icons.remove_red_eye,
-                      color: kBGColour,
+                      color: kFGColour,
                     ),
                   ),
                 ),
               ),
               kGapFiller,
-              // TODO add forgot
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   RoundedButton(
-                    buttonCol: kTrimColour,
-                    buttonTextCol: kAccentColour,
+                    buttonCol: kBGColour,
+                    buttonTextCol: kFGColour,
                     buttonText: "Login",
                     pressedAction: () {
-                      // Navigator.pushNamed(context, FeedPage.id);
-                    },
-                  ),
-                  kGapFiller,
-                  RoundedButton(
-                    buttonCol: kHighlightColour,
-                    buttonTextCol: kFGColour,
-                    buttonText: "Don't Have An Account Yet?",
-                    pressedAction: () {
-                      Navigator.pushNamed(context, RegisterPage.id);
+                      Navigator.pushNamed(context, FeedPage.id);
                     },
                   ),
                 ],

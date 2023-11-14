@@ -27,7 +27,7 @@ const appRegularText = TextStyle(
 );
 
 const kInputTextStyle = TextStyle(
-  color: kBGColour,
+  color: kFGColour,
   // fontFamily: "SF-Pro",
 );
 
@@ -38,7 +38,7 @@ const kGapFiller = SizedBox(
 
 const kInputField = InputDecoration(
   filled: true,
-  fillColor: kFGColour,
+  fillColor: kHighlightColour,
   contentPadding: EdgeInsets.symmetric(
     vertical: 10.0,
     horizontal: 20.0,
@@ -50,7 +50,7 @@ const kInputField = InputDecoration(
   ),
   enabledBorder: OutlineInputBorder(
     borderSide: BorderSide(
-      color: kBGColour,
+      color: kAccentColour,
       width: 1.0,
     ),
     borderRadius: BorderRadius.all(
@@ -59,7 +59,7 @@ const kInputField = InputDecoration(
   ),
   focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(
-      color: kTrimColour,
+      color: kHighlightColour,
       width: 2.5,
     ),
     borderRadius: BorderRadius.all(

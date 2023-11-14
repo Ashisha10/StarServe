@@ -19,82 +19,159 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBGColour,
+      backgroundColor: kAccentColour,
       body: Padding(
         padding: const EdgeInsets.all(50.0),
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              kGapFiller,
-              const SizedBox.square(
-                dimension: 200.0,
-                child: Image(
-                  image: AssetImage("assets/images/StarServeLogo.png"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            // kGapFiller,
+            const SizedBox.square(
+              dimension: 200.0,
+              child: Image(
+                image: AssetImage("assets/images/StarServeLogo.png"),
+              ),
+            ),
+            kGapFiller,
+            Text(
+              "StarServe",
+              style: appBranding.copyWith(fontSize: 50.0),
+            ),
+            kGapFiller,
+            TextField(
+              // NAME FIELD
+              cursorColor: kFGColour,
+              style: kInputTextStyle,
+              decoration: kInputField.copyWith(
+                hintText: "Enter Your Name Here",
+                prefixIcon: const Icon(
+                  Icons.person_2_outlined,
+                  color: kFGColour,
                 ),
               ),
-              kGapFiller,
-              Text(
-                "StarServe",
-                style: appBranding.copyWith(fontSize: 50.0),
+            ),
+            kGapFiller,
+            TextField(
+              // MAIL FIELD
+              cursorColor: kFGColour,
+              style: kInputTextStyle,
+              decoration: kInputField.copyWith(
+                hintText: "Enter Your Mail ID Here",
+                prefixIcon: const Icon(
+                  Icons.mail_outline_rounded,
+                  color: kFGColour,
+                ),
               ),
-              kGapFiller,
-              TextField(
-                cursorColor: kBGColour,
-                style: kInputTextStyle,
-                decoration: kInputField.copyWith(
-                  prefixIcon: const Icon(
-                    Icons.mail_outline_rounded,
-                    color: kBGColour,
+            ),
+            kGapFiller,
+            TextField(
+              // PASSWORD FIELD
+              obscureText: hidePswd,
+              cursorColor: kFGColour,
+              style: kInputTextStyle,
+              decoration: kInputField.copyWith(
+                hintText: "Enter Your Password Here",
+                prefixIcon: const Icon(
+                  Icons.key_rounded,
+                  color: kFGColour,
+                ),
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    if (hidePswd == false) {
+                      setState(() {
+                        hidePswd = true;
+                      });
+                    } else {
+                      setState(() {
+                        hidePswd = false;
+                      });
+                    }
+                  },
+                  child: Icon(
+                    hidePswd
+                        ? Icons.remove_red_eye_outlined
+                        : Icons.remove_red_eye,
+                    color: kFGColour,
                   ),
                 ),
               ),
-              kGapFiller,
-              TextField(
-                obscureText: hidePswd,
-                cursorColor: kBGColour,
-                style: kInputTextStyle,
-                decoration: kInputField.copyWith(
-                  prefixIcon: const Icon(
-                    Icons.key_rounded,
-                    color: kBGColour,
-                  ),
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      if (hidePswd == false) {
-                        setState(() {
-                          hidePswd = true;
-                        });
-                      } else {
-                        setState(() {
-                          hidePswd = false;
-                        });
-                      }
-                    },
-                    child: Icon(
-                      hidePswd
-                          ? Icons.remove_red_eye_outlined
-                          : Icons.remove_red_eye,
-                      color: kBGColour,
-                    ),
+            ),
+            kGapFiller,
+            TextField(
+              // CONFIRM PASSWORD FIELD
+              obscureText: hidePswd,
+              cursorColor: kFGColour,
+              style: kInputTextStyle,
+              decoration: kInputField.copyWith(
+                hintText: "Re-Enter Your Password Here",
+                prefixIcon: const Icon(
+                  Icons.key_rounded,
+                  color: kFGColour,
+                ),
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    if (hidePswd == false) {
+                      setState(() {
+                        hidePswd = true;
+                      });
+                    } else {
+                      setState(() {
+                        hidePswd = false;
+                      });
+                    }
+                  },
+                  child: Icon(
+                    hidePswd
+                        ? Icons.remove_red_eye_outlined
+                        : Icons.remove_red_eye,
+                    color: kFGColour,
                   ),
                 ),
               ),
-              kGapFiller,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  RoundedButton(
-                    buttonCol: kTrimColour,
-                    buttonTextCol: kAccentColour,
-                    buttonText: "Create Account",
+            ),
+            kGapFiller,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: RoundedButton(
+                    buttonCol: kHighlightColour,
+                    buttonTextCol: kFGColour,
+                    buttonText: "Individual",
                     pressedAction: () {
-                      Navigator.pushNamed(context, LoginPage.id);
+                      //send volunteer status to cloud
                     },
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+                const SizedBox(
+                  width: 15.0,
+                ),
+                Expanded(
+                  child: RoundedButton(
+                    buttonCol: kHighlightColour,
+                    buttonTextCol: kFGColour,
+                    buttonText: "Organisation",
+                    pressedAction: () {
+                      //send volunteer status to cloud
+                    },
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RoundedButton(
+                  buttonCol: kBGColour,
+                  buttonTextCol: kFGColour,
+                  buttonText: "Create Account",
+                  pressedAction: () {
+                    Navigator.pushNamed(context, LoginPage.id);
+                  },
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
