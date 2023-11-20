@@ -9,13 +9,25 @@ import '../pages_o/ongoing_events.dart';
 // const HighlightColour = Color(0xFFF05454);
 
 const kBGColour = Color(0xFF141618);
-const kFGColour = Color(0xFFE0E0E0);
+const kFGColour = Color(0xFF2263AB);
 const kTrimColour = Color(0xFF1A1F23);
 const kAccentColour = Color(0xFF41BFA5);
 const kHighlightColour = Color(0xFF359F90);
 
+// const kBGColour = Color(0x0C356A);
+// const kFGColour = Color(0xFFE0E0E0);
+// const kTrimColour = Color(0x0174BE);
+// const kAccentColour = Color(0xFFC436);
+// const kHighlightColour = Color(0xFFF0CE);
+
+const navyBlue = Color(0xFF2263AB);
+const cream = Color(0xFFE0E0E0);
+const lightBlue = Color(0xFF37C0FF);
+const deepYellow = Color(0xEAFFF594);
+const lightYellow = Color(0xEAFFF594);
+
 const appBranding = TextStyle(
-  color: kFGColour,
+  color: lightYellow,
   fontStyle: FontStyle.normal,
   // fontFamily: "Sacramento",
 );
@@ -38,7 +50,7 @@ const kGapFiller = SizedBox(
 
 const kInputField = InputDecoration(
   filled: true,
-  fillColor: kHighlightColour,
+  fillColor: deepYellow,
   contentPadding: EdgeInsets.symmetric(
     vertical: 10.0,
     horizontal: 20.0,
@@ -59,7 +71,7 @@ const kInputField = InputDecoration(
   ),
   focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(
-      color: kHighlightColour,
+      color: deepYellow,
       width: 2.5,
     ),
     borderRadius: BorderRadius.all(

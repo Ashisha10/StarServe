@@ -56,7 +56,7 @@ class _CurrentPageState extends State<CurrentPage> {
       ),
       bottomNavigationBar: CupertinoTabBar(
         backgroundColor: kBGColour,
-        activeColor: kHighlightColour,
+        activeColor: deepYellow,
         inactiveColor: kFGColour,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
