@@ -3,6 +3,7 @@ import 'package:star_serve/components/rounded_button.dart';
 import 'package:star_serve/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages/login_page.dart';
+import 'package:animated_background/animated_background.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -13,19 +14,29 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMixin{
   bool hidePswd = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/star.jpg"),
-            fit: BoxFit.cover,
+      backgroundColor: Colors.black,
+      body: AnimatedBackground(
+        behaviour: RandomParticleBehaviour(
+          options: const ParticleOptions(
+            baseColor: Colors.white,
+            spawnOpacity: 1,
+            opacityChangeRate: 0.5,
+            minOpacity: 0,
+            maxOpacity: 1,
+            spawnMinSpeed: 20.0,
+            spawnMaxSpeed: 30.0,
+            spawnMinRadius: 1.0,
+            spawnMaxRadius: 2,
+            particleCount: 90,
           ),
         ),
+        vsync: this,
         child: Padding(
           padding: const EdgeInsets.all(50.0),
           child: Column(

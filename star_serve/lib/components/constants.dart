@@ -9,7 +9,7 @@ import '../pages_o/ongoing_events.dart';
 // const HighlightColour = Color(0xFFF05454);
 
 const kBGColour = Color(0xFF141618);
-const kFGColour = Color(0xFFE0E0E0);
+const kFGColour = Color(0xFF2263AB);
 const kTrimColour = Color(0xFF1A1F23);
 const kAccentColour = Color(0xFF41BFA5);
 const kHighlightColour = Color(0xFF359F90);

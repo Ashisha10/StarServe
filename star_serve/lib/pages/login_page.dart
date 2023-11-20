@@ -4,6 +4,7 @@ import 'package:star_serve/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages/register_page.dart';
 import 'package:star_serve/pages_o/ongoing_events.dart';
+import 'package:animated_background/animated_background.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -14,20 +15,29 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage>  with TickerProviderStateMixin{
   bool hidePswd = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kAccentColour,
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/star.jpg"),
-            fit: BoxFit.cover,
+      backgroundColor: Colors.black,
+      body: AnimatedBackground(
+        behaviour: RandomParticleBehaviour(
+          options: const ParticleOptions(
+            baseColor: Colors.white,
+            spawnOpacity: 1,
+            opacityChangeRate: 0.5,
+            minOpacity: 0,
+            maxOpacity: 1,
+            spawnMinSpeed: 20.0,
+            spawnMaxSpeed: 30.0,
+            spawnMinRadius: 1.0,
+            spawnMaxRadius: 2,
+            particleCount: 90,
           ),
         ),
+        vsync: this,
         child: Padding(
           padding: const EdgeInsets.all(50.0),
           child: Center(
@@ -101,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                       buttonTextCol: kFGColour,
                       buttonText: "Login",
                       pressedAction: () {
-                        Navigator.pushNamed(context, FeedPage.id);
+                        //Navigator.pushNamed(context, FeedPage.id);
                       },
                     ),
                   ],
