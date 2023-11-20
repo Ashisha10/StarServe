@@ -24,20 +24,7 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
     return Scaffold(
       backgroundColor: Colors.black,
       body: AnimatedBackground(
-        behaviour: RandomParticleBehaviour(
-          options: const ParticleOptions(
-            baseColor: Colors.white,
-            spawnOpacity: 1,
-            opacityChangeRate: 0.5,
-            minOpacity: 0,
-            maxOpacity: 1,
-            spawnMinSpeed: 20.0,
-            spawnMaxSpeed: 30.0,
-            spawnMinRadius: 1.0,
-            spawnMaxRadius: 2,
-            particleCount: 90,
-          ),
-        ),
+        behaviour: buildRandomParticleBehaviour(),
         vsync: this,
         child: Container(
           //color: Colors.black,
@@ -58,15 +45,14 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
                     dimension: 200.0,
                     child: Image(
                       image: AssetImage(
-                          "assets/images/StarServeLogoNoBG.png"), // TODO : Add new image
+                          "assets/images/StarServeLogoNoBG.png"),
                     ),
                   ),
-                  kGapFiller,
                   Text(
                     "StarServe",
                     style: appBranding.copyWith(fontSize: 50.0),
                   ),
-                  kGapFiller,
+                  // kGapFiller,
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
@@ -78,7 +64,6 @@ class _LandingPageState extends State<LandingPage> with TickerProviderStateMixin
                           Navigator.pushNamed(context, RegisterPage.id);
                         },
                       ),
-                      // kGapFiller,
                       RoundedButton(
                         buttonCol: deepYellow,
                         buttonTextCol: navyBlue,
