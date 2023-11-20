@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         buttonTextCol: kFGColour,
                         buttonText: "Login",
                         pressedAction: () {
-                          Navigator.pushNamed(context, Explore.id);
+                          Navigator.pushNamed(context, OngoingEventsPage.id);
                         },
                       ),
                     ],

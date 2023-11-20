@@ -82,7 +82,7 @@ const kInputField = InputDecoration(
 );
 
 List<Widget> homeScreenItems = [
-  const FeedPage(),
+  // const FeedPage(),
   // const ExplorePage(),
   // const RequestsPage(),
   const ProfilePage(),
