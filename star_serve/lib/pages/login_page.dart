@@ -112,6 +112,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         buttonTextCol: kFGColour,
                         buttonText: "Login",
                         pressedAction: () async {
+                          loaderAnimation(context);
                           try {
                             final user = await _auth.signInWithEmailAndPassword(
                               email: mail,
