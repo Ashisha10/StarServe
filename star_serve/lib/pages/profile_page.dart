@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:star_serve/pages/edit_profile.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -36,6 +37,8 @@ class _ProfilePageState extends State<ProfilePage> {
               'Edit Profile',
                   () {
                 // Add functionality for Edit Profile
+                    Navigator.pushNamed(
+                      context, EditProfile.id);
               },
             ),
             buildFunctionalityRow(
