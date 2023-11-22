@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:star_serve/pages/landing_page.dart';
 import 'package:star_serve/pages/profile_page.dart';
 import 'package:star_serve/pages/login_page.dart';
@@ -6,15 +8,31 @@ import 'package:flutter/material.dart';
 import 'package:star_serve/pages/register_page.dart';
 import 'package:star_serve/pages/splash_screen.dart';
 import 'package:star_serve/pages_o/ongoing_events.dart';
+
 // import 'package:star_serve/pages_o/ongoing_events.dart';
 import 'package:star_serve/pages_v/ongoing_events.dart';
 import 'package:star_serve/pages_v/explore_page.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(StarServe());
 }
 
+// void main() {
+//   runApp(StarServe());
+// }
+
 class StarServe extends StatelessWidget {
+  // Future<void> initializeDefault() async {
+  //   FirebaseApp app = await Firebase.initializeApp(
+  //     options: DefaultFirebaseOptions.currentPlatform,
+  //   );
+  //   print('Initialized default app $app');
+  // }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,7 +49,7 @@ class StarServe extends StatelessWidget {
         // RequestsPage.id: (context) => const RequestsPage(),
         ProfilePage.id: (context) => const ProfilePage(),
         Explore.id: (context) => const Explore(),
-        OngoingEventsPage.id : (context) => const OngoingEventsPage(),
+        OngoingEventsPage.id: (context) => const OngoingEventsPage(),
       },
     );
   }

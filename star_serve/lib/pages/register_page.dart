@@ -4,6 +4,7 @@ import 'package:star_serve/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages/login_page.dart';
 import 'package:animated_background/animated_background.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -14,8 +15,16 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMixin{
+class _RegisterPageState extends State<RegisterPage>
+    with TickerProviderStateMixin {
   bool hidePswd = true;
+  final _auth = FirebaseAuth.instance;
+
+  String name = "";
+  String mail = "";
+  String pswd = "";
+  String repswd = "";
+  String acctyp = "";
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +54,9 @@ class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMi
                 kGapFiller,
                 TextField(
                   // NAME FIELD
+                  onChanged: (value) {
+                    name = value;
+                  },
                   cursorColor: deepYellow,
                   style: kInputTextStyle,
                   decoration: kInputField.copyWith(
@@ -58,6 +70,9 @@ class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMi
                 kGapFiller,
                 TextField(
                   // MAIL FIELD
+                  onChanged: (value) {
+                    mail = value;
+                  },
                   cursorColor: kFGColour,
                   style: kInputTextStyle,
                   decoration: kInputField.copyWith(
@@ -71,6 +86,9 @@ class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMi
                 kGapFiller,
                 TextField(
                   // PASSWORD FIELD
+                  onChanged: (value) {
+                    pswd = value;
+                  },
                   obscureText: hidePswd,
                   cursorColor: kFGColour,
                   style: kInputTextStyle,
@@ -80,6 +98,8 @@ class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMi
                       Icons.key_rounded,
                       color: navyBlue,
                     ),
+
+                    // Password show and hide functionality
                     suffixIcon: GestureDetector(
                       onTap: () {
                         if (hidePswd == false) {
@@ -104,6 +124,9 @@ class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMi
                 kGapFiller,
                 TextField(
                   // CONFIRM PASSWORD FIELD
+                  onChanged: (value) {
+                    repswd = value;
+                  },
                   obscureText: hidePswd,
                   cursorColor: kFGColour,
                   style: kInputTextStyle,
@@ -113,6 +136,8 @@ class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMi
                       Icons.key_rounded,
                       color: navyBlue,
                     ),
+
+                    // Password show and hide functionality
                     suffixIcon: GestureDetector(
                       onTap: () {
                         if (hidePswd == false) {
@@ -140,12 +165,17 @@ class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMi
                   children: [
                     Expanded(
                       child: RoundedButton(
-                        buttonCol: deepYellow,
-                        buttonTextCol: navyBlue,
-                        buttonText: "Individual",
+                        buttonCol: acctyp == "" || acctyp == "o"
+                            ? deepYellow
+                            : navyBlue,
+                        buttonTextCol: acctyp == "" || acctyp == "o"
+                            ? navyBlue
+                            : deepYellow,
+                        buttonText: "Volunteer",
                         pressedAction: () {
-                          // TODO : add color change for button press
-                          //send volunteer status to cloud
+                          setState(() {
+                            acctyp = "v";
+                          });
                         },
                       ),
                     ),
@@ -154,12 +184,17 @@ class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMi
                     ),
                     Expanded(
                       child: RoundedButton(
-                        buttonCol: deepYellow,
-                        buttonTextCol: navyBlue,
+                        buttonCol: acctyp == "" || acctyp == "v"
+                            ? deepYellow
+                            : navyBlue,
+                        buttonTextCol: acctyp == "" || acctyp == "v"
+                            ? navyBlue
+                            : deepYellow,
                         buttonText: "Organisation",
                         pressedAction: () {
-                          // TODO : add color change for button press
-                          //send volunteer status to cloud
+                          setState(() {
+                            acctyp = "o";
+                          });
                         },
                       ),
                     ),
@@ -169,11 +204,22 @@ class _RegisterPageState extends State<RegisterPage>  with TickerProviderStateMi
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     RoundedButton(
-                      buttonCol: lightYellow,
-                      buttonTextCol: navyBlue,
+                      buttonCol: kBGColour,
+                      buttonTextCol: kFGColour,
                       buttonText: "Create Account",
-                      pressedAction: () {
-                        Navigator.pushNamed(context, LoginPage.id);
+                      pressedAction: () async {
+                        try {
+                          final newUser =
+                              await _auth.createUserWithEmailAndPassword(
+                            email: mail,
+                            password: pswd,
+                          );
+                          if (newUser != null) {
+                            Navigator.pushNamed(context, LoginPage.id);
+                          }
+                        } on Exception catch (e) {
+                          print(e);
+                        }
                       },
                     ),
                   ],

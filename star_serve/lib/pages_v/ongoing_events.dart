@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class FeedPage extends StatefulWidget {
   const FeedPage({Key? key}) : super(key: key);
 
-  static const String id = "feed_page_v";
+  static const String id = "ongoing_events_page_";
 
   @override
   State<FeedPage> createState() => _FeedPageState();

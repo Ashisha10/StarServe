@@ -3,6 +3,8 @@
 
 import 'package:animated_background/animated_background.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:star_serve/components/rounded_button.dart';
 import 'package:star_serve/components/constants.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,28 @@ class OngoingEventsPage extends StatefulWidget {
 }
 
 class _OngoingEventsPageState extends State<OngoingEventsPage>  with TickerProviderStateMixin {
+
+  final _auth = FirebaseAuth.instance;
+  late User loggedInUser;
+
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if(loggedInUser != null){
+        loggedInUser = user!;
+      }
+    } on Exception catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getCurrentUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +58,7 @@ class _OngoingEventsPageState extends State<OngoingEventsPage>  with TickerProvi
               ),
             ),
             IconButton(
-              icon: Icon(Icons.filter_list, size: 40, color: navyBlue),
+              icon: const Icon(Icons.filter_list, size: 40, color: navyBlue),
               onPressed: () {
                 // Handle location icon press
               },

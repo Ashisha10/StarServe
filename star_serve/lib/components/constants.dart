@@ -22,7 +22,7 @@ const kHighlightColour = Color(0xFF359F90);
 // const kHighlightColour = Color(0xFFF0CE);
 
 const navyBlue = Color(0xFF2263AB);
-const cream = Color(0xFFE0E0E0);
+const cream = Color(0xFF7A6E8C);
 const lightBlue = Color(0xFF37C0FF);
 const deepYellow = Color(0xEAFFF594);
 const lightYellow = Color(0xEAFFF594);
