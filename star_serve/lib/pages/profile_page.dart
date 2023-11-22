@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages/edit_profile.dart';
+import 'package:star_serve/pages/past_events.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -53,6 +54,8 @@ class _ProfilePageState extends State<ProfilePage> {
               'Past Activity',
                   () {
                 // Add functionality for Past Activity
+                    Navigator.pushNamed(
+                        context, PastEvents.id);
               },
             ),
             SizedBox(height: 32.0),
