@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:star_serve/pages/register_page.dart';
 import 'package:star_serve/pages_o/ongoing_events.dart';
 import 'package:animated_background/animated_background.dart';
+import 'package:star_serve/pages/profile_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -112,6 +113,7 @@ class _LoginPageState extends State<LoginPage>  with TickerProviderStateMixin{
                       buttonText: "Login",
                       pressedAction: () {
                         //Navigator.pushNamed(context, FeedPage.id);
+                        Navigator.pushNamed(context, ProfilePage.id);
                       },
                     ),
                   ],
