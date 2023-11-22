@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flare_flutter: ^3.0.2
   toast: ^0.3.0
+  curved_navigation_bar: ^1.0.3
 
   #animations:
   animated_text_kit: ^4.2.2
