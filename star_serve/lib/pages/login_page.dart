@@ -2,15 +2,12 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:star_serve/components/rounded_button.dart';
 import 'package:star_serve/components/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:star_serve/pages/profile_page.dart';
 import 'package:star_serve/pages/register_page.dart';
 import 'package:star_serve/pages_o/ongoing_events.dart';
 import 'package:animated_background/animated_background.dart';
-<<<<<<< HEAD
-import 'package:star_serve/pages/profile_page.dart';
-=======
 import 'package:star_serve/pages_v/explore_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
->>>>>>> 4ca4d1c87a5127161b308016c2c04fe6a81d5ada
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -70,21 +67,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-<<<<<<< HEAD
-                ),
-                kGapFiller,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    RoundedButton(
-                      buttonCol: kBGColour,
-                      buttonTextCol: kFGColour,
-                      buttonText: "Login",
-                      pressedAction: () {
-                        //Navigator.pushNamed(context, FeedPage.id);
-                        Navigator.pushNamed(context, ProfilePage.id);
-                      },
-=======
                   kGapFiller,
                   TextField(
                     // PASSWORD FIELD
@@ -119,7 +101,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                           color: navyBlue,
                         ),
                       ),
->>>>>>> 4ca4d1c87a5127161b308016c2c04fe6a81d5ada
                     ),
                   ),
                   kGapFiller,
@@ -131,18 +112,20 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         buttonTextCol: kFGColour,
                         buttonText: "Login",
                         pressedAction: () async {
-                          try {
-                            final user = await _auth.signInWithEmailAndPassword(
-                              email: mail,
-                              password: pswd,
-                            );
-                            if (user != null) {
-                              Navigator.pushNamed(
-                                  context, OngoingEventsPage.id);
-                            }
-                          } on Exception catch (e) {
-                            print(e);
-                          }
+                          // try {
+                          //   final user = await _auth.signInWithEmailAndPassword(
+                          //     email: mail,
+                          //     password: pswd,
+                          //   );
+                          //   if (user != null) {
+                          //     Navigator.pushNamed(
+                          //         context, ProfilePage.id);
+                          //   }
+                          // } on Exception catch (e) {
+                          //   print(e);
+                          // }
+                          Navigator.pushNamed(
+                              context, ProfilePage.id);
                         },
                       ),
                     ],

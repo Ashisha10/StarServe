@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -62,6 +63,18 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         ),
       ),
+      bottomNavigationBar: CurvedNavigationBar(
+        items: [
+          Icon(Icons.explore),
+          Icon(Icons.access_time_outlined),
+          Icon(Icons.person),
+        ],
+        onTap: (index) {
+          // Handle navigation based on the index
+          // For example, you can use a switch statement
+          // to navigate to different pages.
+        },
+      ),
     );
   }
 
@@ -85,4 +98,4 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
     );
   }
-  }
+}
