@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1027052056729",
+    "project_id": "starserve-893d7",
+    "storage_bucket": "starserve-893d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027052056729:android:f46a757aaf11f29dcbc808",
+        "android_client_info": {
+          "package_name": "com.aquilla.star_serve"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgFcL_b4yKtZQ4jmaFvht7tIwtU_we17Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

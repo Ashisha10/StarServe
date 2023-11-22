@@ -1,3 +1,4 @@
+import 'package:animated_background/particles.dart';
 import 'package:star_serve/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ const kHighlightColour = Color(0xFF359F90);
 // const kHighlightColour = Color(0xFFF0CE);
 
 const navyBlue = Color(0xFF2263AB);
-const cream = Color(0xFFE0E0E0);
+const cream = Color(0xFF7A6E8C);
 const lightBlue = Color(0xFF37C0FF);
 const deepYellow = Color(0xEAFFF594);
 const lightYellow = Color(0xEAFFF594);
@@ -81,8 +82,25 @@ const kInputField = InputDecoration(
 );
 
 List<Widget> homeScreenItems = [
-  const FeedPage(),
+  // const FeedPage(),
   // const ExplorePage(),
   // const RequestsPage(),
   const ProfilePage(),
 ];
+
+RandomParticleBehaviour buildRandomParticleBehaviour() {
+  return RandomParticleBehaviour(
+    options: const ParticleOptions(
+      baseColor: Colors.white,
+      spawnOpacity: 1,
+      opacityChangeRate: 0.5,
+      minOpacity: 0,
+      maxOpacity: 1,
+      spawnMinSpeed: 20.0,
+      spawnMaxSpeed: 30.0,
+      spawnMinRadius: 1.0,
+      spawnMaxRadius: 2,
+      particleCount: 90,
+    ),
+  );
+}
