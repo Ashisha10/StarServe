@@ -48,6 +48,7 @@ dependencies:
   firebase_messaging: ^14.7.4
   firebase_core: ^2.23.0
   toast: ^0.3.0
+  curved_navigation_bar: ^1.0.3
 
 dev_dependencies:
   flutter_test:

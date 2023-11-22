@@ -1,32 +1,32 @@
 PODS:
-  - Firebase/Auth (10.17.0):
+  - Firebase/Auth (10.18.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 10.17.0)
-  - Firebase/CoreOnly (10.17.0):
-    - FirebaseCore (= 10.17.0)
-  - Firebase/Messaging (10.17.0):
+    - FirebaseAuth (~> 10.18.0)
+  - Firebase/CoreOnly (10.18.0):
+    - FirebaseCore (= 10.18.0)
+  - Firebase/Messaging (10.18.0):
     - Firebase/CoreOnly
-    - FirebaseMessaging (~> 10.17.0)
-  - Firebase/Storage (10.17.0):
+    - FirebaseMessaging (~> 10.18.0)
+  - Firebase/Storage (10.18.0):
     - Firebase/CoreOnly
-    - FirebaseStorage (~> 10.17.0)
+    - FirebaseStorage (~> 10.18.0)
   - firebase_auth (4.14.0):
-    - Firebase/Auth (= 10.17.0)
+    - Firebase/Auth (= 10.18.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.22.0):
-    - Firebase/CoreOnly (= 10.17.0)
+  - firebase_core (2.23.0):
+    - Firebase/CoreOnly (= 10.18.0)
     - Flutter
   - firebase_messaging (14.7.4):
-    - Firebase/Messaging (= 10.17.0)
+    - Firebase/Messaging (= 10.18.0)
     - firebase_core
     - Flutter
   - firebase_storage (11.5.1):
-    - Firebase/Storage (= 10.17.0)
+    - Firebase/Storage (= 10.18.0)
     - firebase_core
     - Flutter
   - FirebaseAppCheckInterop (10.18.0)
-  - FirebaseAuth (10.17.0):
+  - FirebaseAuth (10.18.0):
     - FirebaseAppCheckInterop (~> 10.17)
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
@@ -34,10 +34,10 @@ PODS:
     - GTMSessionFetcher/Core (< 4.0, >= 2.1)
     - RecaptchaInterop (~> 100.0)
   - FirebaseAuthInterop (10.18.0)
-  - FirebaseCore (10.17.0):
+  - FirebaseCore (10.18.0):
     - FirebaseCoreInternal (~> 10.0)
-    - GoogleUtilities/Environment (~> 7.8)
-    - GoogleUtilities/Logger (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.12)
+    - GoogleUtilities/Logger (~> 7.12)
   - FirebaseCoreExtension (10.18.0):
     - FirebaseCore (~> 10.0)
   - FirebaseCoreInternal (10.18.0):
@@ -47,7 +47,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
-  - FirebaseMessaging (10.17.0):
+  - FirebaseMessaging (10.18.0):
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
     - GoogleDataTransport (~> 9.2)
@@ -56,7 +56,7 @@ PODS:
     - GoogleUtilities/Reachability (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseStorage (10.17.0):
+  - FirebaseStorage (10.18.0):
     - FirebaseAppCheckInterop (~> 10.0)
     - FirebaseAuthInterop (~> 10.0)
     - FirebaseCore (~> 10.0)
@@ -132,20 +132,20 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  Firebase: f4ac0b02927af9253ae094d23deecf0890da7374
-  firebase_auth: 6a41305f668ac6f9bcbefdedfcba5aacb8367e92
-  firebase_core: efc9455611b8769fa90fbdae5da182600bd6901c
-  firebase_messaging: 9c697d1ecfe77edf15d995b5048906ffc994c96c
-  firebase_storage: c10cf9a1c953d6cb41873c735f3740c43111b3c4
+  Firebase: 414ad272f8d02dfbf12662a9d43f4bba9bec2a06
+  firebase_auth: 9a3d42edd6ab9d7bcf3e05deaa5a08e57d9d34d6
+  firebase_core: 29d66baf806970cda37c93621b27cd369b27db1b
+  firebase_messaging: d22721fcb70a1e1ec228bb039c9e9cf1ec462941
+  firebase_storage: 0dbc58296cff8477f1e6cf4e490a52bcd205bf8f
   FirebaseAppCheckInterop: 3cd914842ba46f4304050874cd284de82f154ffd
-  FirebaseAuth: 8d285d9f6e39cc8e23be53a4edd83a923ea629d8
+  FirebaseAuth: 12314b438fa76048540c8fb86d6cfc9e08595176
   FirebaseAuthInterop: 5818713dcd7239beb96c1125e4b14d6a5a910e5f
-  FirebaseCore: 534544dd98cabcf4bf8598d88ec683b02319a528
+  FirebaseCore: 2322423314d92f946219c8791674d2f3345b598f
   FirebaseCoreExtension: 62b201498aa10535801cdf3448c7f4db5e24ed80
   FirebaseCoreInternal: 8eb002e564b533bdcf1ba011f33f2b5c10e2ed4a
   FirebaseInstallations: e842042ec6ac1fd2e37d7706363ebe7f662afea4
-  FirebaseMessaging: 1367b28c0c83a63072af4a711328fcc2e6899902
-  FirebaseStorage: 4af6f9ea67b6a8e4e3cbd75e006b4776a50e8b12
+  FirebaseMessaging: 9bc34a98d2e0237e1b121915120d4d48ddcf301e
+  FirebaseStorage: 8333c4b183764cdd170d9539a61322b71c23adff
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   GoogleDataTransport: 54dee9d48d14580407f8f5fbf2f496e92437a2f2
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
