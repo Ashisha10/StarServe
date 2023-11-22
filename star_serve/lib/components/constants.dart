@@ -108,20 +108,20 @@ RandomParticleBehaviour buildRandomParticleBehaviour() {
 
 loaderAnimation(BuildContext context) {
   return showDialog<void>(
-    context: context,
-    barrierDismissible: true,
-    barrierColor: kDialogBGColor,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: kDialogBGColor,
-        content: Container(
+      context: context,
+      barrierColor: kDialogBGColor,
+      builder: (BuildContext context) {
+        return Dialog(
+          elevation: 0,
+          backgroundColor: kDialogBGColor,
           child: Center(
-            child: Image.asset(
-              'assets/images/orbitloader.gif', // Put your gif into the assets folder
+            child: Container(
+              width: ((MediaQuery.of(context).size.width)/2.0),
+              child: Image.asset(
+                'assets/images/orbitloader.gif',
+              ),
             ),
           ),
-        ),
-      );
-    },
-  );
+        );
+      });
 }
