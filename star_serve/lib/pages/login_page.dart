@@ -6,6 +6,7 @@ import 'package:star_serve/pages/register_page.dart';
 import 'package:star_serve/pages_o/ongoing_events.dart';
 import 'package:animated_background/animated_background.dart';
 import 'package:star_serve/pages_v/explore_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -18,6 +19,10 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   bool hidePswd = true;
+  final _auth = FirebaseAuth.instance;
+
+  String mail = "";
+  String pswd = "";
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +53,9 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                   kGapFiller,
                   TextField(
                     // MAIL FIELD
+                    onChanged: (value) {
+                      mail = value;
+                    },
                     cursorColor: navyBlue,
                     style: kInputTextStyle,
                     decoration: kInputField.copyWith(
@@ -61,6 +69,9 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                   kGapFiller,
                   TextField(
                     // PASSWORD FIELD
+                    onChanged: (value) {
+                      pswd = value;
+                    },
                     obscureText: hidePswd,
                     cursorColor: kFGColour,
                     style: kInputTextStyle,
@@ -99,8 +110,19 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         buttonCol: kBGColour,
                         buttonTextCol: kFGColour,
                         buttonText: "Login",
-                        pressedAction: () {
-                          Navigator.pushNamed(context, OngoingEventsPage.id);
+                        pressedAction: () async {
+                          try {
+                            final user = await _auth.signInWithEmailAndPassword(
+                              email: mail,
+                              password: pswd,
+                            );
+                            if (user != null) {
+                              Navigator.pushNamed(
+                                  context, OngoingEventsPage.id);
+                            }
+                          } on Exception catch (e) {
+                            print(e);
+                          }
                         },
                       ),
                     ],
