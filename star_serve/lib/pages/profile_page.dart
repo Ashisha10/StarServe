@@ -115,9 +115,9 @@ class _ProfilePageState extends State<ProfilePage>
           // to navigate to different pages.
         },
         items: const [
-          Icon(Icons.explore, color: navyBlue),
-          Icon(Icons.access_time_outlined, color: navyBlue),
-          Icon(Icons.person, color: navyBlue),
+          Icon(Icons.explore, color: navyBlue,size: 40,),
+          Icon(Icons.access_time_outlined, color: navyBlue,size: 40,),
+          Icon(Icons.person, color: navyBlue,size: 40,),
         ],
       ),
     );
