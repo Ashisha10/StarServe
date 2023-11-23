@@ -94,21 +94,21 @@ class _ProfilePageState extends State<ProfilePage>
               buildFunctionalityRow(
                 context,
                 'Edit Profile',
-                    () {
+                () {
                   // Add functionality for Edit Profile
                 },
               ),
               buildFunctionalityRow(
                 context,
                 'Change Password',
-                    () {
+                () {
                   // Add functionality for Change Password
                 },
               ),
               buildFunctionalityRow(
                 context,
                 'Past Activity',
-                    () {
+                () {
                   // Add functionality for Past Activity
                 },
               ),
