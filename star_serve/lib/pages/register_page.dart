@@ -19,6 +19,7 @@ class _RegisterPageState extends State<RegisterPage>
     with TickerProviderStateMixin {
   bool hidePswd = true;
   final _auth = FirebaseAuth.instance;
+  bool showLoading = false;
 
   String name = "";
   String mail = "";
@@ -208,6 +209,7 @@ class _RegisterPageState extends State<RegisterPage>
                       buttonTextCol: kFGColour,
                       buttonText: "Create Account",
                       pressedAction: () async {
+                        loaderAnimation(context);
                         try {
                           final newUser =
                               await _auth.createUserWithEmailAndPassword(

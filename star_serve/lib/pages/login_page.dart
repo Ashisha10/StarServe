@@ -9,6 +9,9 @@ import 'package:animated_background/animated_background.dart';
 import 'package:star_serve/pages_o/volunteer_page.dart';
 import 'package:star_serve/pages_v/explore_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:star_serve/pages/edit_profile.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -113,20 +116,19 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         buttonTextCol: kFGColour,
                         buttonText: "Login",
                         pressedAction: () async {
-                          // try {
-                          //   final user = await _auth.signInWithEmailAndPassword(
-                          //     email: mail,
-                          //     password: pswd,
-                          //   );
-                          //   if (user != null) {
-                          //     Navigator.pushNamed(
-                          //         context, ProfilePage.id);
-                          //   }
-                          // } on Exception catch (e) {
-                          //   print(e);
-                          // }
-                          Navigator.pushNamed(context, ProfilePage.id);
-                          //Navigator.pushNamed(context, VolunteerPage.id);
+                          loaderAnimation(context);
+                          try {
+                            final user = await _auth.signInWithEmailAndPassword(
+                              email: mail,
+                              password: pswd,
+                            );
+                            if (user != null) {
+                              Navigator.pushNamed(context, EditProfile.id);
+                            }
+                          } on Exception catch (e) {
+                            print(e);
+                          }
+                          Navigator.pushNamed(context, EditProfile.id);
                         },
                       ),
                     ],

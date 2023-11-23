@@ -14,6 +14,7 @@ const kFGColour = Color(0xFF2263AB);
 const kTrimColour = Color(0xFF1A1F23);
 const kAccentColour = Color(0xFF41BFA5);
 const kHighlightColour = Color(0xFF359F90);
+const kDialogBGColor = Colors.transparent;
 
 // const kBGColour = Color(0x0C356A);
 // const kFGColour = Color(0xFFE0E0E0);
@@ -103,4 +104,24 @@ RandomParticleBehaviour buildRandomParticleBehaviour() {
       particleCount: 90,
     ),
   );
+}
+
+loaderAnimation(BuildContext context) {
+  return showDialog<void>(
+      context: context,
+      barrierColor: kDialogBGColor,
+      builder: (BuildContext context) {
+        return Dialog(
+          elevation: 0,
+          backgroundColor: kDialogBGColor,
+          child: Center(
+            child: Container(
+              width: ((MediaQuery.of(context).size.width)/2.0),
+              child: Image.asset(
+                'assets/images/orbitloader.gif',
+              ),
+            ),
+          ),
+        );
+      });
 }

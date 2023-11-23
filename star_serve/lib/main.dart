@@ -24,17 +24,7 @@ void main() async {
   runApp(StarServe());
 }
 
-// void main() {
-//   runApp(StarServe());
-// }
-
 class StarServe extends StatelessWidget {
-  // Future<void> initializeDefault() async {
-  //   FirebaseApp app = await Firebase.initializeApp(
-  //     options: DefaultFirebaseOptions.currentPlatform,
-  //   );
-  //   print('Initialized default app $app');
-  // }
 
   @override
   Widget build(BuildContext context) {
