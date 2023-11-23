@@ -108,17 +108,17 @@ class _ProfilePageState extends State<ProfilePage>
       bottomNavigationBar: CurvedNavigationBar(
         color: lightYellow,
         buttonBackgroundColor: lightYellow,
-        backgroundColor: navyBlue,
-        items: [
-          Icon(Icons.explore, color: navyBlue),
-          Icon(Icons.access_time_outlined, color: navyBlue),
-          Icon(Icons.person, color: navyBlue),
-        ],
+        backgroundColor: Colors.black,
         onTap: (index) {
           // Handle navigation based on the index
           // For example, you can use a switch statement
           // to navigate to different pages.
         },
+        items: const [
+          Icon(Icons.explore, color: navyBlue),
+          Icon(Icons.access_time_outlined, color: navyBlue),
+          Icon(Icons.person, color: navyBlue),
+        ],
       ),
     );
   }
