@@ -34,6 +34,7 @@ class _ProfilePageState extends State<ProfilePage>
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
     getCurrentUser();
   }
@@ -44,12 +45,39 @@ class _ProfilePageState extends State<ProfilePage>
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: lightYellow,
-        title: Text(
-          'HOWDY STAR',
-          style: appRegularText.copyWith(fontSize: 40.0),
+        title: Center(
+          child: Text(
+            'HOWDY!',
+            style: appRegularText.copyWith(fontSize: 40.0),
+          ),
         ),
       ),
       backgroundColor: Colors.black,
+      bottomNavigationBar: CurvedNavigationBar(
+        color: lightYellow,
+        buttonBackgroundColor: lightYellow,
+        backgroundColor: Colors.black,
+        onTap: (index) {
+          // Handle navigation based on the index
+        },
+        items: const [
+          Icon(
+            Icons.explore,
+            color: navyBlue,
+            size: 40,
+          ),
+          Icon(
+            Icons.access_time_outlined,
+            color: navyBlue,
+            size: 40,
+          ),
+          Icon(
+            Icons.person,
+            color: navyBlue,
+            size: 40,
+          ),
+        ],
+      ),
       body: AnimatedBackground(
         behaviour: buildRandomParticleBehaviour(),
         vsync: this,
@@ -89,36 +117,29 @@ class _ProfilePageState extends State<ProfilePage>
               // Log Out button
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: lightYellow,
+                  primary: navyBlue,
                   padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                  textStyle: appRegularText.copyWith(fontSize: 20.0),
+                  textStyle: appRegularText.copyWith(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 onPressed: () {
-                  // Add functionality for Log Out
+                  _auth.signOut();
+                  Navigator.popUntil(
+                      context, ModalRoute.withName(LoginPage.id));
                 },
                 child: Text(
                   'Log Out',
-                  style: appRegularText.copyWith(fontSize: 20.0),
+                  style: appRegularText.copyWith(
+                    fontSize: 20.0,
+                    color: deepYellow,
+                  ),
                 ),
               ),
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        color: lightYellow,
-        buttonBackgroundColor: lightYellow,
-        backgroundColor: Colors.black,
-        onTap: (index) {
-          // Handle navigation based on the index
-          // For example, you can use a switch statement
-          // to navigate to different pages.
-        },
-        items: const [
-          Icon(Icons.explore, color: navyBlue,size: 40,),
-          Icon(Icons.access_time_outlined, color: navyBlue,size: 40,),
-          Icon(Icons.person, color: navyBlue,size: 40,),
-        ],
       ),
     );
   }
