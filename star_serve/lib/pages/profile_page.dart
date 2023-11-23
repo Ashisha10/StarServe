@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:star_serve/pages/edit_profile.dart';
 import 'package:star_serve/pages/past_events.dart';
 
+import '../pages_v/following_page.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -79,6 +81,14 @@ class _ProfilePageState extends State<ProfilePage> {
           // Handle navigation based on the index
           // For example, you can use a switch statement
           // to navigate to different pages.
+          // switch(index) {
+          //   case 0:
+          //     break;
+          //   case 1:
+          //     Navigator.pushNamed(context, FollowingPage.id);
+          //   case 2:
+          //     Navigator.pushNamed(context, ProfilePage.id);
+          // }
         },
       ),
     );

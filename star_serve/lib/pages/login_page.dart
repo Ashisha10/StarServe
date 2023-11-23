@@ -6,6 +6,7 @@ import 'package:star_serve/pages/profile_page.dart';
 import 'package:star_serve/pages/register_page.dart';
 import 'package:star_serve/pages_o/ongoing_events.dart';
 import 'package:animated_background/animated_background.dart';
+import 'package:star_serve/pages_o/volunteer_page.dart';
 import 'package:star_serve/pages_v/explore_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -124,8 +125,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                           // } on Exception catch (e) {
                           //   print(e);
                           // }
-                          Navigator.pushNamed(
-                              context, ProfilePage.id);
+                          Navigator.pushNamed(context, ProfilePage.id);
+                          //Navigator.pushNamed(context, VolunteerPage.id);
                         },
                       ),
                     ],

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:star_serve/pages/profile_page.dart';
+
+import '../pages_v/following_page.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -76,6 +79,14 @@ class _EditProfileState extends State<EditProfile> {
           // Handle navigation based on the index
           // For example, you can use a switch statement
           // to navigate to different pages.
+          // switch(index) {
+          //   case 0:
+          //     break;
+          //   case 1:
+          //     Navigator.pushNamed(context, FollowingPage.id);
+          //   case 2:
+          //     Navigator.pushNamed(context, ProfilePage.id);
+          // }
         },
       ),
     );

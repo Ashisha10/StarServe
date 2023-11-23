@@ -1,24 +1,22 @@
-import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:star_serve/pages/profile_page.dart';
 
-import '../pages_v/following_page.dart';
+class FollowingPage extends StatefulWidget {
+  const FollowingPage({super.key});
 
-class PastEvents extends StatefulWidget {
-  const PastEvents({super.key});
-
-  static const String id = "past_events";
+  static const String id = "ongoing_events_page_";
 
   @override
-  State<PastEvents> createState() => _PastEventsState();
+  State<FollowingPage> createState() => _FollowingPageState();
 }
 
-class _PastEventsState extends State<PastEvents> {
+class _FollowingPageState extends State<FollowingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Past Events'),
+        title: Text('Following'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -26,31 +24,42 @@ class _PastEventsState extends State<PastEvents> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Past Events',
+              'Following',
               style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 16.0),
+            Text(
+              'Ongoing Events',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8.0),
             // Event Cards
             buildEventCard(
               context,
               'Event 1',
-              'November 1, 2023',
-              '3:00 PM',
+              'November 5, 2022',
+              '2:00 PM',
+              'Description of Event 1.',
             ),
             buildEventCard(
               context,
               'Event 2',
-              'December 1, 2023',
-              '7:30 PM',
+              'December 20, 2022',
+              '6:30 PM',
+              'Description of Event 2.',
             ),
             buildEventCard(
               context,
               'Event 3',
-              'January 1, 2024',
-              '2:00 PM',
+              'January 15, 2023',
+              '3:30 PM',
+              'Description of Event 3.',
             ),
           ],
         ),
@@ -78,7 +87,13 @@ class _PastEventsState extends State<PastEvents> {
     );
   }
 
-  Widget buildEventCard(BuildContext context, String eventName, String eventDate, String eventTime) {
+  Widget buildEventCard(
+      BuildContext context,
+      String eventName,
+      String eventDate,
+      String eventTime,
+      String eventDescription,
+      ) {
     return Card(
       elevation: 4.0,
       margin: EdgeInsets.symmetric(vertical: 8.0),
@@ -97,10 +112,15 @@ class _PastEventsState extends State<PastEvents> {
             SizedBox(height: 8.0),
             Text('Date: $eventDate'),
             Text('Time: $eventTime'),
+            SizedBox(height: 8.0),
+            Text(
+              eventDescription,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
           ],
         ),
       ),
     );
   }
 }
-
