@@ -1,4 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:star_serve/pages/past_events.dart';
+import 'package:star_serve/pages_o/volunteer_page.dart';
+import 'package:star_serve/pages_v/following_page.dart';
 import 'firebase_options.dart';
 import 'package:star_serve/pages/landing_page.dart';
 import 'package:star_serve/pages/profile_page.dart';
@@ -9,7 +12,7 @@ import 'package:star_serve/pages/register_page.dart';
 import 'package:star_serve/pages/splash_screen.dart';
 import 'package:star_serve/pages_o/ongoing_events.dart';
 import 'package:star_serve/pages/edit_profile.dart';
-// import 'package:star_serve/pages_o/ongoing_events.dart';
+import 'package:star_serve/pages_v/ongoing_events.dart';
 import 'package:star_serve/pages_v/ongoing_events.dart';
 import 'package:star_serve/pages_v/explore_page.dart';
 
@@ -35,12 +38,15 @@ class StarServe extends StatelessWidget {
       routes: {
         LoginPage.id: (context) => const LoginPage(),
         RegisterPage.id: (context) => const RegisterPage(),
-        FeedPage.id: (context) => const FeedPage(),
+        //FeedPage.id: (context) => const FeedPage(),
         // RequestsPage.id: (context) => const RequestsPage(),
         ProfilePage.id: (context) => const ProfilePage(),
         Explore.id: (context) => const Explore(),
-        OngoingEventsPage.id: (context) => const OngoingEventsPage(),
+        OngoingEventsVPage.id: (context) => const OngoingEventsVPage(),
         EditProfile.id: (context) => const EditProfile(),
+        PastEvents.id: (context) => const PastEvents(),
+        FollowingPage.id: (context) => const FollowingPage(),
+        VolunteerPage.id: (context) => const VolunteerPage(),
       },
     );
   }
