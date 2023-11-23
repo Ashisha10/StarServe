@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:star_serve/components/rounded_button.dart';
 import 'package:star_serve/components/constants.dart';
-import 'package:flutter/material.dart';
-import 'package:star_serve/pages/landing_page.dart';
 import 'package:star_serve/pages/login_page.dart';
 import 'package:star_serve/pages/register_page.dart';
 
@@ -36,7 +34,6 @@ class _ProfilePageState extends State<ProfilePage>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurrentUser();
   }
@@ -52,9 +49,6 @@ class _ProfilePageState extends State<ProfilePage>
             'HOWDY!',
             style: appRegularText.copyWith(fontSize: 40.0),
           ),
-        title: Text(
-          'HOWDY STAR',
-          style: appRegularText.copyWith(fontSize: 40.0),
         ),
       ),
       backgroundColor: Colors.black,
@@ -100,21 +94,21 @@ class _ProfilePageState extends State<ProfilePage>
               buildFunctionalityRow(
                 context,
                 'Edit Profile',
-                () {
+                    () {
                   // Add functionality for Edit Profile
                 },
               ),
               buildFunctionalityRow(
                 context,
                 'Change Password',
-                () {
+                    () {
                   // Add functionality for Change Password
                 },
               ),
               buildFunctionalityRow(
                 context,
                 'Past Activity',
-                () {
+                    () {
                   // Add functionality for Past Activity
                 },
               ),
@@ -133,53 +127,6 @@ class _ProfilePageState extends State<ProfilePage>
                   _auth.signOut();
                   Navigator.popUntil(
                       context, ModalRoute.withName(LoginPage.id));
-                },
-                child: Text(
-                  'Log Out',
-                  style: appRegularText.copyWith(
-                    fontSize: 20.0,
-                    color: deepYellow,
-                  ),
-                ),
-              ),
-              ),
-              SizedBox(height: 16.0),
-              // Options: Edit Profile, Change Password, Past Activity
-              buildFunctionalityRow(
-                context,
-                'Edit Profile',
-                () {
-                  // Add functionality for Edit Profile
-                },
-              ),
-              buildFunctionalityRow(
-                context,
-                'Change Password',
-                () {
-                  // Add functionality for Change Password
-                },
-              ),
-              buildFunctionalityRow(
-                context,
-                'Past Activity',
-                () {
-                  // Add functionality for Past Activity
-                },
-              ),
-              SizedBox(height: 32.0),
-              // Log Out button
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: navyBlue,
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                  textStyle: appRegularText.copyWith(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                onPressed: () {
-                  _auth.signOut();
-                  Navigator.popUntil(context, ModalRoute.withName(LoginPage.id));
                 },
                 child: Text(
                   'Log Out',
