@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:star_serve/pages/register_page.dart';
 import 'package:star_serve/pages/splash_screen.dart';
 import 'package:star_serve/pages_o/ongoing_events.dart';
-
+import 'package:star_serve/pages/edit_profile.dart';
 // import 'package:star_serve/pages_o/ongoing_events.dart';
 import 'package:star_serve/pages_v/ongoing_events.dart';
 import 'package:star_serve/pages_v/explore_page.dart';
@@ -40,6 +40,7 @@ class StarServe extends StatelessWidget {
         ProfilePage.id: (context) => const ProfilePage(),
         Explore.id: (context) => const Explore(),
         OngoingEventsPage.id: (context) => const OngoingEventsPage(),
+        EditProfile.id: (context) => const EditProfile(),
       },
     );
   }
