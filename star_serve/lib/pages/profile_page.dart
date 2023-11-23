@@ -1,19 +1,14 @@
-//needs UI and appearance fixes
-//needs icons from space theme
-
 import 'package:animated_background/animated_background.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:star_serve/components/rounded_button.dart';
 import 'package:star_serve/components/constants.dart';
-import 'package:flutter/material.dart';
-import 'package:star_serve/pages/landing_page.dart';
 import 'package:star_serve/pages/login_page.dart';
 import 'package:star_serve/pages/register_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({Key? key}) : super(key: key);
 
   static const String id = "profile_page";
 
@@ -39,7 +34,6 @@ class _ProfilePageState extends State<ProfilePage>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurrentUser();
   }
@@ -50,12 +44,39 @@ class _ProfilePageState extends State<ProfilePage>
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: lightYellow,
-        title: Text(
-          'HOWDY STAR',
-          style: appRegularText.copyWith(fontSize: 40.0),
+        title: Center(
+          child: Text(
+            'HOWDY!',
+            style: appRegularText.copyWith(fontSize: 40.0),
+          ),
         ),
       ),
       backgroundColor: Colors.black,
+      bottomNavigationBar: CurvedNavigationBar(
+        color: lightYellow,
+        buttonBackgroundColor: lightYellow,
+        backgroundColor: Colors.black,
+        onTap: (index) {
+          // Handle navigation based on the index
+        },
+        items: const [
+          Icon(
+            Icons.explore,
+            color: navyBlue,
+            size: 40,
+          ),
+          Icon(
+            Icons.access_time_outlined,
+            color: navyBlue,
+            size: 40,
+          ),
+          Icon(
+            Icons.person,
+            color: navyBlue,
+            size: 40,
+          ),
+        ],
+      ),
       body: AnimatedBackground(
         behaviour: buildRandomParticleBehaviour(),
         vsync: this,
@@ -73,21 +94,21 @@ class _ProfilePageState extends State<ProfilePage>
               buildFunctionalityRow(
                 context,
                 'Edit Profile',
-                () {
+                    () {
                   // Add functionality for Edit Profile
                 },
               ),
               buildFunctionalityRow(
                 context,
                 'Change Password',
-                () {
+                    () {
                   // Add functionality for Change Password
                 },
               ),
               buildFunctionalityRow(
                 context,
                 'Past Activity',
-                () {
+                    () {
                   // Add functionality for Past Activity
                 },
               ),
@@ -104,7 +125,8 @@ class _ProfilePageState extends State<ProfilePage>
                 ),
                 onPressed: () {
                   _auth.signOut();
-                  Navigator.popUntil(context, ModalRoute.withName(LoginPage.id));
+                  Navigator.popUntil(
+                      context, ModalRoute.withName(LoginPage.id));
                 },
                 child: Text(
                   'Log Out',
