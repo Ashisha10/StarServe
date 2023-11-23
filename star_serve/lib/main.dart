@@ -1,4 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:star_serve/pages/past_events.dart';
+import 'package:star_serve/pages_o/volunteer_page.dart';
+import 'package:star_serve/pages_v/following_page.dart';
 import 'firebase_options.dart';
 import 'package:star_serve/pages/landing_page.dart';
 import 'package:star_serve/pages/profile_page.dart';
@@ -41,6 +44,9 @@ class StarServe extends StatelessWidget {
         Explore.id: (context) => const Explore(),
         OngoingEventsPage.id: (context) => const OngoingEventsPage(),
         EditProfile.id: (context) => const EditProfile(),
+        PastEvents.id: (context) => const PastEvents(),
+        FollowingPage.id: (context) => const FollowingPage(),
+        VolunteerPage.id: (context) => const VolunteerPage(),
       },
     );
   }
