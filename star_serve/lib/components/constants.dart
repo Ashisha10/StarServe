@@ -1,6 +1,11 @@
+import 'package:animated_background/animated_background.dart';
 import 'package:animated_background/particles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:star_serve/pages/profile_page.dart';
 import 'package:flutter/material.dart';
+import 'package:star_serve/pages_o/vltr_req_page.dart';
+import 'package:star_serve/pages_v/explore_page.dart';
+import 'package:star_serve/pages_v/fol_org_events.dart';
 
 import '../pages_o/ongoing_events.dart';
 
@@ -14,6 +19,7 @@ const kFGColour = Color(0xFF2263AB);
 const kTrimColour = Color(0xFF1A1F23);
 const kAccentColour = Color(0xFF41BFA5);
 const kHighlightColour = Color(0xFF359F90);
+const kDialogBGColor = Colors.transparent;
 
 // const kBGColour = Color(0x0C356A);
 // const kFGColour = Color(0xFFE0E0E0);
@@ -23,7 +29,7 @@ const kHighlightColour = Color(0xFF359F90);
 
 const navyBlue = Color(0xFF2263AB);
 const cream = Color(0xFF7A6E8C);
-const lightBlue = Color(0xFF37C0FF);
+const lightBlue = Color(0x772263AB);
 const deepYellow = Color(0xEAFFF594);
 const lightYellow = Color(0xEAFFF594);
 
@@ -104,3 +110,44 @@ RandomParticleBehaviour buildRandomParticleBehaviour() {
     ),
   );
 }
+
+loaderAnimation(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    barrierColor: kDialogBGColor,
+    builder: (BuildContext context) {
+      return Dialog(
+        elevation: 0,
+        backgroundColor: kDialogBGColor,
+        child: Stack(
+          children: [
+            Container(
+              color: Colors.black
+                  .withOpacity(1), // Adjust the color and opacity as needed
+            ),
+            Center(
+              child: Container(
+                width: ((MediaQuery.of(context).size.width) / 2.0),
+                child: Image.asset(
+                  'assets/images/orbitloader.gif',
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
+List<Widget> bottomNavBarItems_O = [
+  const OngoingEventsOPage(),
+  const VolunteerPage(),
+  const ProfilePage(),
+];
+
+List<Widget> bottomNavBarItems_V = [
+  const ExplorePage(),
+  const OngoingEventsVPage(),
+  const ProfilePage(),
+];
