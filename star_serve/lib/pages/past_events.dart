@@ -20,8 +20,7 @@ class PastEvents extends StatefulWidget {
   State<PastEvents> createState() => _PastEventsState();
 }
 
-class _PastEventsState extends State<PastEvents>
-    with TickerProviderStateMixin {
+class _PastEventsState extends State<PastEvents> with TickerProviderStateMixin {
   final _auth = FirebaseAuth.instance;
   late User loggedInUser;
 
@@ -51,7 +50,7 @@ class _PastEventsState extends State<PastEvents>
         automaticallyImplyLeading: false,
         backgroundColor: lightYellow,
         title: Center(
-          child:Text(
+          child: Text(
             'Past Events',
             style: appRegularText.copyWith(fontSize: 40.0),
           ),
@@ -70,43 +69,56 @@ class _PastEventsState extends State<PastEvents>
                   CardHolder(
                     showLocIcon: false,
                     showDistance: false,
+                    eventDist: '0',
                     eventName: 'Event 1',
                     eventDateTime: 'November 5, 2022, 6:30 PM',
                     eventAddr: 'SAC MNNIT',
                     eventDesc: 'Details for Event 1',
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   CardHolder(
                     showLocIcon: false,
                     showDistance: false,
+                    eventDist: '0',
                     eventName: 'Event 2',
                     eventDateTime: 'December 20, 2022, 2:00 PM',
                     eventAddr: 'MP HALL',
                     eventDesc: 'Details for Event 2',
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   CardHolder(
                     showLocIcon: false,
                     showDistance: false,
+                    eventDist: '',
                     eventName: 'Event 3',
                     eventDateTime: 'January 15, 2023, 3:30 PM',
                     eventAddr: 'Library',
                     eventDesc: 'Details for Event 3',
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   CardHolder(
                     showLocIcon: false,
                     showDistance: false,
+                    eventDist: '',
                     eventName: 'Event 4',
                     eventDateTime: 'January 20, 2023, 4:30 PM',
                     eventAddr: 'ECED',
                     eventDesc: 'Details for Event 4',
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   CardHolder(
                     showHeartIcon: true,
                     showLocIcon: false,
                     showDistance: false,
+                    eventDist: '',
                     eventName: 'Event 5',
                     eventDateTime: 'January 25, 2023, 5:30 PM',
                     eventAddr: 'CSED',

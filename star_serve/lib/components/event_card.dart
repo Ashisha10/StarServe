@@ -6,6 +6,7 @@ class CardHolder extends StatefulWidget {
   String eventDateTime;
   String eventAddr;
   String eventDesc;
+  String eventDist;
   final bool showLocIcon;
   final bool showHeartIcon;
   final bool showDistance;
@@ -15,6 +16,7 @@ class CardHolder extends StatefulWidget {
     required this.eventDateTime,
     required this.eventAddr,
     required this.eventDesc,
+    required this.eventDist,
     this.showLocIcon = true,
     this.showDistance = true,
     this.showHeartIcon = true,
@@ -85,7 +87,9 @@ class _CardHolderState extends State<CardHolder> {
                       },
                     ),
                     if (widget.showDistance)
-                    Text("1.2km", style: appBranding.copyWith(fontSize: 15.0),)
+                    Text(
+                      widget.eventDist,
+                     style: appBranding.copyWith(fontSize: 15.0),)
                   ],
                 ),
               ],
