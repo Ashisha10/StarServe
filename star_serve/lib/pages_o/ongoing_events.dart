@@ -25,8 +25,9 @@ class OngoingEventsOPage extends StatefulWidget {
 
 class _OngoingEventsOPageState extends State<OngoingEventsOPage>
     with TickerProviderStateMixin {
+
   final _auth = FirebaseAuth.instance;
-  late User loggedInUser;
+  User? loggedInUser;
 
   void getCurrentUser() async {
     try {
@@ -41,7 +42,6 @@ class _OngoingEventsOPageState extends State<OngoingEventsOPage>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurrentUser();
   }
@@ -154,31 +154,37 @@ class _OngoingEventsOPageState extends State<OngoingEventsOPage>
           ),
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        color: lightYellow,
-        buttonBackgroundColor: lightYellow,
-        backgroundColor: Colors.black,
-        onTap: (index) {
-          // Handle navigation based on the index
-        },
-        items: const [
-          Icon(
-            Icons.explore,
-            color: navyBlue,
-            size: 40,
-          ),
-          Icon(
-            Icons.access_time_outlined,
-            color: navyBlue,
-            size: 40,
-          ),
-          Icon(
-            Icons.person,
-            color: navyBlue,
-            size: 40,
-          ),
-        ],
-      ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   key: _bottomNavigationKey,
+      //   color: lightYellow,
+      //   buttonBackgroundColor: lightYellow,
+      //   backgroundColor: Colors.black,
+      //   onTap: (index) {
+      //     setState(() {
+      //       _page = index;
+      //       // CurvedNavigationBarState? navBarState =
+      //       //     _bottomNavigationKey.currentState;
+      //     });
+      //   },
+      //   letIndexChange: (index) => true,
+      //   items: const [
+      //     Icon(
+      //       Icons.explore,
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //     Icon(
+      //       Icons.access_time_outlined,
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //     Icon(
+      //       Icons.person,
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

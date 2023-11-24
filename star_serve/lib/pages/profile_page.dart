@@ -21,7 +21,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage>
     with TickerProviderStateMixin {
   final _auth = FirebaseAuth.instance;
-  late User loggedInUser;
+  User? loggedInUser;
 
   void getCurrentUser() async {
     try {
@@ -54,31 +54,31 @@ class _ProfilePageState extends State<ProfilePage>
         ),
       ),
       backgroundColor: Colors.black,
-      bottomNavigationBar: CurvedNavigationBar(
-        color: lightYellow,
-        buttonBackgroundColor: lightYellow,
-        backgroundColor: Colors.black,
-        onTap: (index) {
-          // Handle navigation based on the index
-        },
-        items: const [
-          Icon(
-            Icons.explore,
-            color: navyBlue,
-            size: 40,
-          ),
-          Icon(
-            Icons.access_time_outlined,
-            color: navyBlue,
-            size: 40,
-          ),
-          Icon(
-            Icons.person,
-            color: navyBlue,
-            size: 40,
-          ),
-        ],
-      ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   color: lightYellow,
+      //   buttonBackgroundColor: lightYellow,
+      //   backgroundColor: Colors.black,
+      //   onTap: (index) {
+      //     // Handle navigation based on the index
+      //   },
+      //   items: const [
+      //     Icon(
+      //       Icons.explore,
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //     Icon(
+      //       Icons.access_time_outlined,
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //     Icon(
+      //       Icons.person,
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //   ],
+      // ),
       body: AnimatedBackground(
         behaviour: buildRandomParticleBehaviour(),
         vsync: this,

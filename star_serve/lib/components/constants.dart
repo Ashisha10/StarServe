@@ -1,5 +1,6 @@
 import 'package:animated_background/animated_background.dart';
 import 'package:animated_background/particles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:star_serve/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages_o/vltr_req_page.dart';
@@ -28,7 +29,7 @@ const kDialogBGColor = Colors.transparent;
 
 const navyBlue = Color(0xFF2263AB);
 const cream = Color(0xFF7A6E8C);
-const lightBlue = Color(0xFF37C0FF);
+const lightBlue = Color(0x772263AB);
 const deepYellow = Color(0xEAFFF594);
 const lightYellow = Color(0xEAFFF594);
 
