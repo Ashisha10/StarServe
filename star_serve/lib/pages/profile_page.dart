@@ -48,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage>
         backgroundColor: lightYellow,
         title: Center(
           child: Text(
-            'HOWDY!',
+            'HOWDY',
             style: appRegularText.copyWith(fontSize: 40.0),
           ),
         ),
@@ -88,7 +88,7 @@ class _ProfilePageState extends State<ProfilePage>
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Your Name',
+                'Starlight',
                 style: appBranding.copyWith(fontSize: 50.0),
               ),
               SizedBox(height: 16.0),
