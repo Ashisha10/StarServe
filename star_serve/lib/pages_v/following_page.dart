@@ -1,67 +1,73 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages/profile_page.dart';
+
+import '../components/event_card.dart';
 
 class FollowingPage extends StatefulWidget {
   const FollowingPage({super.key});
 
-  static const String id = "ongoing_events_page_";
+  static const String id = "following_page";
 
   @override
   State<FollowingPage> createState() => _FollowingPageState();
 }
 
 class _FollowingPageState extends State<FollowingPage> {
+  final _auth = FirebaseAuth.instance;
+  late User loggedInUser;
+
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (loggedInUser != null) {
+        loggedInUser = user!;
+      }
+    } on Exception catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getCurrentUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Following'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Following',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CardHolder(
+                eventName: 'Event 1',
+                eventDateTime: 'November 5, 2022, 6:30 PM',
+                eventAddr: 'SAC MNNIT',
+                eventDesc: 'Details for Event 1',
               ),
-            ),
-            SizedBox(height: 16.0),
-            Text(
-              'Ongoing Events',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
+              CardHolder(
+                eventName: 'Event 2',
+                eventDateTime: 'December 20, 2022, 2:00 PM',
+                eventAddr: 'MP HALL',
+                eventDesc: 'Details for Event 2',
               ),
-            ),
-            SizedBox(height: 8.0),
-            // Event Cards
-            buildEventCard(
-              context,
-              'Event 1',
-              'November 5, 2022',
-              '2:00 PM',
-              'Description of Event 1.',
-            ),
-            buildEventCard(
-              context,
-              'Event 2',
-              'December 20, 2022',
-              '6:30 PM',
-              'Description of Event 2.',
-            ),
-            buildEventCard(
-              context,
-              'Event 3',
-              'January 15, 2023',
-              '3:30 PM',
-              'Description of Event 3.',
-            ),
-          ],
+              CardHolder(
+                eventName: 'Event 3',
+                eventDateTime: 'January 15, 2023, 3:30 PM',
+                eventAddr: 'Library',
+                eventDesc: 'Details for Event 3',
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -87,40 +93,40 @@ class _FollowingPageState extends State<FollowingPage> {
     );
   }
 
-  Widget buildEventCard(
-      BuildContext context,
-      String eventName,
-      String eventDate,
-      String eventTime,
-      String eventDescription,
-      ) {
-    return Card(
-      elevation: 4.0,
-      margin: EdgeInsets.symmetric(vertical: 8.0),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              eventName,
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8.0),
-            Text('Date: $eventDate'),
-            Text('Time: $eventTime'),
-            SizedBox(height: 8.0),
-            Text(
-              eventDescription,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  // Widget buildEventCard(
+  //   BuildContext context,
+  //   String eventName,
+  //   String eventDate,
+  //   String eventTime,
+  //   String eventDescription,
+  // ) {
+  //   return Card(
+  //     elevation: 4.0,
+  //     margin: EdgeInsets.symmetric(vertical: 8.0),
+  //     child: Padding(
+  //       padding: const EdgeInsets.all(16.0),
+  //       child: Column(
+  //         crossAxisAlignment: CrossAxisAlignment.start,
+  //         children: [
+  //           Text(
+  //             eventName,
+  //             style: TextStyle(
+  //               fontSize: 18.0,
+  //               fontWeight: FontWeight.bold,
+  //             ),
+  //           ),
+  //           SizedBox(height: 8.0),
+  //           Text('Date: $eventDate'),
+  //           Text('Time: $eventTime'),
+  //           SizedBox(height: 8.0),
+  //           Text(
+  //             eventDescription,
+  //             maxLines: 2,
+  //             overflow: TextOverflow.ellipsis,
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 }
