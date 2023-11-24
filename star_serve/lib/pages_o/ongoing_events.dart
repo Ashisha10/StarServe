@@ -14,16 +14,16 @@ import 'package:star_serve/pages/register_page.dart';
 
 import '../components/event_card.dart';
 
-class OngoingEventsPage extends StatefulWidget {
-  const OngoingEventsPage({super.key});
+class OngoingEventsOPage extends StatefulWidget {
+  const OngoingEventsOPage({super.key});
 
   static const String id = "ongoing_events_page_o";
 
   @override
-  State<OngoingEventsPage> createState() => _OngoingEventsPageState();
+  State<OngoingEventsOPage> createState() => _OngoingEventsOPageState();
 }
 
-class _OngoingEventsPageState extends State<OngoingEventsPage>
+class _OngoingEventsOPageState extends State<OngoingEventsOPage>
     with TickerProviderStateMixin {
   final _auth = FirebaseAuth.instance;
   late User loggedInUser;

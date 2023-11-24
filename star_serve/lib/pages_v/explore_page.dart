@@ -11,16 +11,16 @@ import 'package:star_serve/pages/register_page.dart';
 
 import '../components/event_card.dart';
 
-class Explore extends StatefulWidget {
-  const Explore({super.key});
+class ExplorePage extends StatefulWidget {
+  const ExplorePage({super.key});
 
-  static const String id = "explore_page";
+  static const String id = "ExplorePage_page";
 
   @override
-  State<Explore> createState() => _ExploreState();
+  State<ExplorePage> createState() => _ExplorePageState();
 }
 
-class _ExploreState extends State<Explore> with TickerProviderStateMixin {
+class _ExplorePageState extends State<ExplorePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -122,17 +122,17 @@ class _OngoingEventsVPageState extends State<OngoingEventsVPage>
         },
         items: const [
           Icon(
-            Icons.explore,
+            Icons.explore, // use this for explore and ongoing events respectively for org and user
             color: navyBlue,
             size: 40,
           ),
           Icon(
-            Icons.access_time_outlined,
+            Icons.notifications, // use this button to redirect to the volunteer requests and following respectively for org and user
             color: navyBlue,
             size: 40,
           ),
           Icon(
-            Icons.person,
+            Icons.person, // profile page
             color: navyBlue,
             size: 40,
           ),

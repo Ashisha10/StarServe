@@ -13,11 +13,8 @@ import 'package:star_serve/pages/profile_page.dart';
 import 'package:star_serve/pages/register_page.dart';
 import 'package:star_serve/pages/edit_profile.dart';
 
-import 'package:star_serve/pages_o/volunteer_page.dart';
-
 import 'package:star_serve/pages_v/explore_page.dart';
-import 'package:star_serve/pages_v/following_page.dart';
-import 'package:star_serve/pages_v/ongoing_events.dart';
+import 'package:star_serve/pages_v/fol_org_events.dart';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:star_serve/globals.dart' as g;
@@ -41,7 +38,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 
   void getAccType() async {
     final snap =
-    await _dbms.collection("users").where("email", isEqualTo: mail).get();
+        await _dbms.collection("users").where("email", isEqualTo: mail).get();
     g.setOnLogin(snap.docs.single.get("acctyp"));
   }
 
@@ -143,10 +140,10 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               // getAccType();
                               // String route = "ongoing_events_page_${g.acctyp}";
                               String route = "ongoing_events_page_v";
-                              Navigator.pushNamed(context, FollowingPage.id);
+                              Navigator.pushNamed(
+                                  context, OngoingEventsVPage.id);
                             }
-                          } on Exception catch (e) {
-                          }
+                          } on Exception catch (e) {}
                         },
                       ),
                     ],

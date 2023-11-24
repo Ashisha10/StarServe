@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 class CurrentPage extends StatefulWidget {
   const CurrentPage({Key? key}) : super(key: key);
 
-  static const String id = "home_page";
-
   @override
   State<CurrentPage> createState() => _CurrentPageState();
 }
