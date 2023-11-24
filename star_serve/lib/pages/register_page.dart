@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:star_serve/pages/login_page.dart';
 import 'package:animated_background/animated_background.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:star_serve/globals.dart' as g;
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -17,15 +19,17 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage>
     with TickerProviderStateMixin {
-  bool hidePswd = true;
+
   final _auth = FirebaseAuth.instance;
+  final _dbms = FirebaseFirestore.instance;
+
+  bool hidePswd = true;
   bool showLoading = false;
 
   String name = "";
   String mail = "";
   String pswd = "";
   String repswd = "";
-  String acctyp = "";
 
   @override
   Widget build(BuildContext context) {
@@ -166,16 +170,16 @@ class _RegisterPageState extends State<RegisterPage>
                   children: [
                     Expanded(
                       child: RoundedButton(
-                        buttonCol: acctyp == "" || acctyp == "o"
+                        buttonCol: g.acctyp == "" || g.acctyp == "o"
                             ? deepYellow
                             : navyBlue,
-                        buttonTextCol: acctyp == "" || acctyp == "o"
+                        buttonTextCol: g.acctyp == "" || g.acctyp == "o"
                             ? navyBlue
                             : deepYellow,
                         buttonText: "Volunteer",
                         pressedAction: () {
                           setState(() {
-                            acctyp = "v";
+                            g.acctyp = "v";
                           });
                         },
                       ),
@@ -185,16 +189,16 @@ class _RegisterPageState extends State<RegisterPage>
                     ),
                     Expanded(
                       child: RoundedButton(
-                        buttonCol: acctyp == "" || acctyp == "v"
+                        buttonCol: g.acctyp == "" || g.acctyp == "v"
                             ? deepYellow
                             : navyBlue,
-                        buttonTextCol: acctyp == "" || acctyp == "v"
+                        buttonTextCol: g.acctyp == "" || g.acctyp == "v"
                             ? navyBlue
                             : deepYellow,
                         buttonText: "Organisation",
                         pressedAction: () {
                           setState(() {
-                            acctyp = "o";
+                            g.acctyp = "o";
                           });
                         },
                       ),
@@ -209,8 +213,8 @@ class _RegisterPageState extends State<RegisterPage>
                       buttonTextCol: kFGColour,
                       buttonText: "Create Account",
                       pressedAction: () async {
-                        loaderAnimation(context);
                         try {
+                          loaderAnimation(context);
                           final newUser =
                               await _auth.createUserWithEmailAndPassword(
                             email: mail,
@@ -220,6 +224,16 @@ class _RegisterPageState extends State<RegisterPage>
                             Navigator.pushNamed(context, LoginPage.id);
                           }
                         } on Exception catch (e) {
+                        }
+                        try{
+                          _dbms.collection('users').add({
+                            'name': name,
+                            'email': mail,
+                            'pswd': pswd,
+                            'acctyp': g.acctyp,
+                          });
+                        }
+                        on Exception catch (e){
                           print(e);
                         }
                       },

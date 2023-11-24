@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:star_serve/components/rounded_button.dart';
 import 'package:star_serve/components/constants.dart';
+import 'package:star_serve/pages/edit_profile.dart';
 import 'package:star_serve/pages/login_page.dart';
+import 'package:star_serve/pages/past_events.dart';
 import 'package:star_serve/pages/register_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -46,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage>
         backgroundColor: lightYellow,
         title: Center(
           child: Text(
-            'HOWDY!',
+            'HOWDY',
             style: appRegularText.copyWith(fontSize: 40.0),
           ),
         ),
@@ -86,7 +88,7 @@ class _ProfilePageState extends State<ProfilePage>
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Your Name',
+                'Starlight',
                 style: appBranding.copyWith(fontSize: 50.0),
               ),
               SizedBox(height: 16.0),
@@ -95,7 +97,7 @@ class _ProfilePageState extends State<ProfilePage>
                 context,
                 'Edit Profile',
                 () {
-                  // Add functionality for Edit Profile
+                  Navigator.pushNamed(context, EditProfile.id);
                 },
               ),
               buildFunctionalityRow(
@@ -109,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage>
                 context,
                 'Past Activity',
                 () {
-                  // Add functionality for Past Activity
+                  Navigator.pushNamed(context, PastEvents.id);
                 },
               ),
               SizedBox(height: 32.0),
