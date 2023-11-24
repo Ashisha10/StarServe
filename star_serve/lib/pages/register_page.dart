@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:star_serve/pages/login_page.dart';
 import 'package:animated_background/animated_background.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -17,8 +18,12 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage>
     with TickerProviderStateMixin {
-  bool hidePswd = true;
+
   final _auth = FirebaseAuth.instance;
+  final _dbms = FirebaseFirestore.instance;
+
+  bool hidePswd = true;
+  bool showLoading = false;
 
   String name = "";
   String mail = "";
@@ -208,6 +213,7 @@ class _RegisterPageState extends State<RegisterPage>
                       buttonTextCol: kFGColour,
                       buttonText: "Create Account",
                       pressedAction: () async {
+                        loaderAnimation(context);
                         try {
                           final newUser =
                               await _auth.createUserWithEmailAndPassword(
@@ -218,6 +224,16 @@ class _RegisterPageState extends State<RegisterPage>
                             Navigator.pushNamed(context, LoginPage.id);
                           }
                         } on Exception catch (e) {
+                          print(e);
+                        }
+                        try{
+                          _dbms.collection('users').add({
+                            'name': name,
+                            'email': mail,
+                            'acctyp': acctyp,
+                          });
+                        }
+                        on Exception catch (e){
                           print(e);
                         }
                       },
