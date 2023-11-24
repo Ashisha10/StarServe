@@ -1,18 +1,31 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
-class CardHolder extends StatelessWidget {
+class CardHolder extends StatefulWidget {
   String eventName;
   String eventDateTime;
   String eventAddr;
   String eventDesc;
+  final bool showLocIcon;
+  final bool showHeartIcon;
+  final bool showDistance;
 
   CardHolder({
     required this.eventName,
     required this.eventDateTime,
     required this.eventAddr,
     required this.eventDesc,
+    this.showLocIcon = true,
+    this.showDistance = true,
+    this.showHeartIcon = true,
   });
+
+  @override
+  State<CardHolder> createState() => _CardHolderState();
+}
+
+class _CardHolderState extends State<CardHolder> {
+  bool isHeartTapped = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,19 +43,19 @@ class CardHolder extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      eventName,
+                      widget.eventName,
                       style: appBranding.copyWith(fontSize: 30.0),
                     ),
                     Text(
-                      eventDateTime,
+                      widget.eventDateTime,
                       style: appBranding.copyWith(fontSize: 15.0),
                     ),
                     Text(
-                      eventAddr,
+                      widget.eventAddr,
                       style: appBranding.copyWith(fontSize: 15.0),
                     ),
                     Text(
-                      eventDesc,
+                      widget.eventDesc,
                       style: appBranding.copyWith(fontSize: 15.0),
                     ),
                   ],
@@ -50,6 +63,19 @@ class CardHolder extends StatelessWidget {
                 Spacer(), // Adds space between text and button
                 Column(
                   children: [
+                    if(widget.showHeartIcon)
+                    IconButton(
+                      iconSize: 35,
+                      color: isHeartTapped ? Colors.pinkAccent[100] : Colors.grey, // Change color based on tap state
+                      icon: Icon(isHeartTapped ? Icons.favorite : Icons.favorite_border),
+                      onPressed: () {
+                        // Handle icon press
+                        setState(() {
+                          isHeartTapped = !isHeartTapped; // Toggle tap state
+                        });
+                      },
+                    ),
+                    if (widget.showLocIcon)
                     IconButton(
                       iconSize: 35,
                       color: lightYellow,
@@ -58,6 +84,7 @@ class CardHolder extends StatelessWidget {
                         // ...
                       },
                     ),
+                    if (widget.showDistance)
                     Text("1.2km", style: appBranding.copyWith(fontSize: 15.0),)
                   ],
                 ),
