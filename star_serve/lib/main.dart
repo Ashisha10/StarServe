@@ -37,13 +37,11 @@ class StarServe extends StatelessWidget {
         LoginPage.id: (context) => const LoginPage(),
         RegisterPage.id: (context) => const RegisterPage(),
         ProfilePage.id: (context) => const ProfilePage(),
-
+        CurrentPage.id: (context) => const CurrentPage(),
         ExplorePage.id: (context) => const ExplorePage(),
         OngoingEventsVPage.id: (context) => const OngoingEventsVPage(),
-
         OngoingEventsOPage.id: (context) => const OngoingEventsOPage(),
         VolunteerPage.id: (context) => const VolunteerPage(),
-
         EditProfile.id: (context) => const EditProfile(),
         PastEvents.id: (context) => const PastEvents(),
       },

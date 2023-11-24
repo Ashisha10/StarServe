@@ -38,11 +38,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   String mail = "";
   String pswd = "";
 
-  void getAccType() async {
-    final snap =
-        await _dbms.collection("users").where("email", isEqualTo: mail).get();
-    g.setOnLogin(snap.docs.single.get("acctyp"));
-  }
+  // void getAccType() async {
+  //   final snap =
+  //       await _dbms.collection("users").where("email", isEqualTo: mail).get();
+  //   g.setOnLogin(snap.docs.single.get("acctyp"));
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -139,12 +139,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             );
 
                             if (user != null) {
-                              // getAccType();
-                              // String route = "ongoing_events_page_${g.acctyp}";
-                              // String route = "ongoing_events_page_v";
-                              Navigator.pushNamed(context, ProfilePage.id);
+                              Navigator.pushNamed(context, "page_manager");
                             }
-                          } on Exception catch (e) {}
+                          } on Exception catch (e) {
+                            print(e);
+                          }
                         },
                       ),
                     ],
