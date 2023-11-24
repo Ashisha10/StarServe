@@ -8,7 +8,7 @@ import 'package:star_serve/components/constants.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
-  static const String id = "edit_profile";
+  static const String id = "edit_profile_page";
 
   @override
   State<EditProfile> createState() => _EditProfileState();

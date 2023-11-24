@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:star_serve/pages/profile_page.dart';
 
-import '../pages_v/following_page.dart';
-
 class PastEvents extends StatefulWidget {
   const PastEvents({super.key});
 
-  static const String id = "past_events";
+  static const String id = "past_events_page";
 
   @override
   State<PastEvents> createState() => _PastEventsState();
