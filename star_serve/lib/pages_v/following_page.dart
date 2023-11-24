@@ -2,6 +2,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages/profile_page.dart';
 
+import '../pages/login_page.dart';
+
 class FollowingPage extends StatefulWidget {
   const FollowingPage({super.key});
 
@@ -65,6 +67,7 @@ class _FollowingPageState extends State<FollowingPage> {
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
+        index: 1,
         items: [
           Icon(Icons.explore),
           Icon(Icons.access_time_outlined),
@@ -74,14 +77,18 @@ class _FollowingPageState extends State<FollowingPage> {
           // Handle navigation based on the index
           // For example, you can use a switch statement
           // to navigate to different pages.
-          // switch(index) {
-          //   case 0:
-          //     break;
-          //   case 1:
-          //     Navigator.pushNamed(context, FollowingPage.id);
-          //   case 2:
-          //     Navigator.pushNamed(context, ProfilePage.id);
-          // }
+          setState(() {
+            switch(index) {
+              case 0:
+                break;
+              case 1:
+              // Navigator.pushNamed(context, FollowingPage.id);
+                break;
+              case 2:
+                Navigator.popUntil(context, ModalRoute.withName(LoginPage.id));
+                Navigator.pushNamed(context, ProfilePage.id);
+            }
+          });
         },
       ),
     );
