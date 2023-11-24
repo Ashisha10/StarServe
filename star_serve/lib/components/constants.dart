@@ -1,6 +1,10 @@
+import 'package:animated_background/animated_background.dart';
 import 'package:animated_background/particles.dart';
 import 'package:star_serve/pages/profile_page.dart';
 import 'package:flutter/material.dart';
+import 'package:star_serve/pages_o/vltr_req_page.dart';
+import 'package:star_serve/pages_v/explore_page.dart';
+import 'package:star_serve/pages_v/fol_org_events.dart';
 
 import '../pages_o/ongoing_events.dart';
 
@@ -108,20 +112,41 @@ RandomParticleBehaviour buildRandomParticleBehaviour() {
 
 loaderAnimation(BuildContext context) {
   return showDialog<void>(
-      context: context,
-      barrierColor: kDialogBGColor,
-      builder: (BuildContext context) {
-        return Dialog(
-          elevation: 0,
-          backgroundColor: kDialogBGColor,
-          child: Center(
-            child: Container(
-              width: ((MediaQuery.of(context).size.width)/2.0),
-              child: Image.asset(
-                'assets/images/orbitloader.gif',
+    context: context,
+    barrierColor: kDialogBGColor,
+    builder: (BuildContext context) {
+      return Dialog(
+        elevation: 0,
+        backgroundColor: kDialogBGColor,
+        child: Stack(
+          children: [
+            Container(
+              color: Colors.black
+                  .withOpacity(1), // Adjust the color and opacity as needed
+            ),
+            Center(
+              child: Container(
+                width: ((MediaQuery.of(context).size.width) / 2.0),
+                child: Image.asset(
+                  'assets/images/orbitloader.gif',
+                ),
               ),
             ),
-          ),
-        );
-      });
+          ],
+        ),
+      );
+    },
+  );
 }
+
+List<Widget> bottomNavBarItems_O = [
+  const OngoingEventsOPage(),
+  const VolunteerPage(),
+  const ProfilePage(),
+];
+
+List<Widget> bottomNavBarItems_V = [
+  const ExplorePage(),
+  const OngoingEventsVPage(),
+  const ProfilePage(),
+];
