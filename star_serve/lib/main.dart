@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:star_serve/pages/past_events.dart';
+import 'package:star_serve/pages_o/vltr_req_page.dart';
 import 'firebase_options.dart';
 import 'package:star_serve/pages/landing_page.dart';
 import 'package:star_serve/pages/profile_page.dart';
@@ -36,8 +37,13 @@ class StarServe extends StatelessWidget {
         LoginPage.id: (context) => const LoginPage(),
         RegisterPage.id: (context) => const RegisterPage(),
         ProfilePage.id: (context) => const ProfilePage(),
+
         ExplorePage.id: (context) => const ExplorePage(),
         OngoingEventsVPage.id: (context) => const OngoingEventsVPage(),
+
+        OngoingEventsOPage.id: (context) => const OngoingEventsOPage(),
+        VolunteerPage.id: (context) => const VolunteerPage(),
+
         EditProfile.id: (context) => const EditProfile(),
         PastEvents.id: (context) => const PastEvents(),
       },

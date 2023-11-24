@@ -14,7 +14,7 @@ class _VolunteerPageState extends State<VolunteerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Volunteers'),
+        title: Text('Volunteer Requests'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

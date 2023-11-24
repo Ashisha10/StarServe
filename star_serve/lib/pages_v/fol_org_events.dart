@@ -54,8 +54,8 @@ class _OngoingEventsVPageState extends State<OngoingEventsVPage>
           children: [
             Expanded(
               child: Text(
-                "Ongoing Events",
-                style: appRegularText.copyWith(fontSize: 35.0),
+                "Following Events",
+                style: appRegularText.copyWith(fontSize: 25.0),
               ),
             ),
             IconButton(

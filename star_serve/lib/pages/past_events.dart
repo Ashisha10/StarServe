@@ -5,7 +5,7 @@ import 'package:star_serve/pages/profile_page.dart';
 class PastEvents extends StatefulWidget {
   const PastEvents({super.key});
 
-  static const String id = "past_events";
+  static const String id = "past_events_page";
 
   @override
   State<PastEvents> createState() => _PastEventsState();

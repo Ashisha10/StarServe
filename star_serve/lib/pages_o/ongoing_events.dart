@@ -57,7 +57,7 @@ class _OngoingEventsOPageState extends State<OngoingEventsOPage>
           children: [
             Expanded(
               child: Text(
-                "Ongoing Events",
+                "Manage Events",
                 style: appRegularText.copyWith(fontSize: 40.0),
               ),
             ),

@@ -3,6 +3,7 @@
 
 import 'package:animated_background/animated_background.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:star_serve/components/rounded_button.dart';
 import 'package:star_serve/components/constants.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +15,14 @@ import '../components/event_card.dart';
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
 
-  static const String id = "ExplorePage_page";
+  static const String id = "explore_page";
 
   @override
   State<ExplorePage> createState() => _ExplorePageState();
 }
 
-class _ExplorePageState extends State<ExplorePage> with TickerProviderStateMixin {
+class _ExplorePageState extends State<ExplorePage>
+    with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +33,8 @@ class _ExplorePageState extends State<ExplorePage> with TickerProviderStateMixin
           children: [
             Expanded(
               child: Text(
-                "Explore",
-                style: appRegularText.copyWith(fontSize: 40.0),
+                "Explore Events",
+                style: appRegularText.copyWith(fontSize: 25.0),
               ),
             ),
             IconButton(
@@ -91,8 +93,33 @@ class _ExplorePageState extends State<ExplorePage> with TickerProviderStateMixin
           ),
         ),
       ),
+      bottomNavigationBar: CurvedNavigationBar(
+        color: lightYellow,
+        buttonBackgroundColor: lightYellow,
+        backgroundColor: Colors.black,
+        onTap: (index) {
+          // Handle navigation based on the index
+        },
+        items: const [
+          Icon(
+            Icons.explore,
+            // use this for explore and ongoing events respectively for org and user
+            color: navyBlue,
+            size: 40,
+          ),
+          Icon(
+            Icons.notifications,
+            // use this button to redirect to the volunteer requests and following respectively for org and user
+            color: navyBlue,
+            size: 40,
+          ),
+          Icon(
+            Icons.person, // profile page
+            color: navyBlue,
+            size: 40,
+          ),
+        ],
+      ),
     );
   }
 }
-
-
