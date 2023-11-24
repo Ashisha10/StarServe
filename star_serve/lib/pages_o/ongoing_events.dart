@@ -3,6 +3,7 @@
 
 import 'package:animated_background/animated_background.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:star_serve/components/rounded_button.dart';
@@ -10,6 +11,8 @@ import 'package:star_serve/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:star_serve/pages/login_page.dart';
 import 'package:star_serve/pages/register_page.dart';
+
+import '../components/event_card.dart';
 
 class OngoingEventsPage extends StatefulWidget {
   const OngoingEventsPage({super.key});
@@ -20,15 +23,15 @@ class OngoingEventsPage extends StatefulWidget {
   State<OngoingEventsPage> createState() => _OngoingEventsPageState();
 }
 
-class _OngoingEventsPageState extends State<OngoingEventsPage>  with TickerProviderStateMixin {
-
+class _OngoingEventsPageState extends State<OngoingEventsPage>
+    with TickerProviderStateMixin {
   final _auth = FirebaseAuth.instance;
   late User loggedInUser;
 
   void getCurrentUser() async {
     try {
       final user = await _auth.currentUser;
-      if(loggedInUser != null){
+      if (loggedInUser != null) {
         loggedInUser = user!;
       }
     } on Exception catch (e) {
@@ -46,6 +49,7 @@ class _OngoingEventsPageState extends State<OngoingEventsPage>  with TickerProvi
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: lightYellow,
@@ -66,20 +70,34 @@ class _OngoingEventsPageState extends State<OngoingEventsPage>  with TickerProvi
           ],
         ),
       ),
-      backgroundColor: Colors.black,
       body: AnimatedBackground(
         behaviour: buildRandomParticleBehaviour(),
         vsync: this,
-        child: Container(
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CardHolder(subheading: 'Event 1', smallText: 'Details for Event 1'),
-                  CardHolder(subheading: 'Event 2', smallText: 'Details for Event 2'),
-                  // Add more CardHolder widgets as needed
+                  CardHolder(
+                    eventName: 'Event 1',
+                    eventDateTime: 'November 5, 2022, 6:30 PM',
+                    eventAddr: 'SAC MNNIT',
+                    eventDesc: 'Details for Event 1',
+                  ),
+                  CardHolder(
+                    eventName: 'Event 2',
+                    eventDateTime: 'December 20, 2022, 2:00 PM',
+                    eventAddr: 'MP HALL',
+                    eventDesc: 'Details for Event 2',
+                  ),
+                  CardHolder(
+                    eventName: 'Event 3',
+                    eventDateTime: 'January 15, 2023, 3:30 PM',
+                    eventAddr: 'Library',
+                    eventDesc: 'Details for Event 3',
+                  ),
                 ],
               ),
               // floatingActionButton: FloatingActionButton(
@@ -92,49 +110,30 @@ class _OngoingEventsPageState extends State<OngoingEventsPage>  with TickerProvi
           ),
         ),
       ),
-    );
-  }
-}
-
-class CardHolder extends StatelessWidget {
-  final String subheading;
-  final String smallText;
-
-  CardHolder({required this.subheading, required this.smallText});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: navyBlue,
-      margin: EdgeInsets.all(5.0),
-      child: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  subheading,
-                  style: appBranding.copyWith(fontSize: 30.0),
-                ),
-                Text(
-                  smallText,
-                  style: appBranding.copyWith(fontSize: 15.0),
-                ),
-              ],
-            ),
-            Spacer(), // Adds space between text and button
-            IconButton(
-              iconSize: 50,
-              color: lightYellow,
-              icon: const Icon(Icons.more),
-              onPressed: () {
-                // ...
-              },
-            ),
-          ],
-        ),
+      bottomNavigationBar: CurvedNavigationBar(
+        color: lightYellow,
+        buttonBackgroundColor: lightYellow,
+        backgroundColor: Colors.black,
+        onTap: (index) {
+          // Handle navigation based on the index
+        },
+        items: const [
+          Icon(
+            Icons.explore,
+            color: navyBlue,
+            size: 40,
+          ),
+          Icon(
+            Icons.access_time_outlined,
+            color: navyBlue,
+            size: 40,
+          ),
+          Icon(
+            Icons.person,
+            color: navyBlue,
+            size: 40,
+          ),
+        ],
       ),
     );
   }
