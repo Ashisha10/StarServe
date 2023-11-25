@@ -38,20 +38,17 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   String mail = "";
   String pswd = "";
 
-<<<<<<< HEAD
   // Function to retrieve the account type from Firestore
   void getAccType() async {
     final snap =
-    await _dbms.collection("users").where("email", isEqualTo: mail).get();
+        await _dbms.collection("users").where("email", isEqualTo: mail).get();
     g.setOnLogin(snap.docs.single.get("acctyp"));
   }
-=======
   // void getAccType() async {
   //   final snap =
   //       await _dbms.collection("users").where("email", isEqualTo: mail).get();
   //   g.setOnLogin(snap.docs.single.get("acctyp"));
   // }
->>>>>>> df8d6e577a5adcddac342e1f4ad0e75448c9d838
 
   @override
   Widget build(BuildContext context) {
@@ -152,7 +149,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             );
 
                             if (user != null) {
-<<<<<<< HEAD
                               // Retrieve account type and navigate to the appropriate page
                               //getAccType();
                               // String route = "ongoing_events_page_${g.acctyp}";
@@ -161,12 +157,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             }
                           } on Exception catch (e) {
                             // Handle any exceptions during the login process
-=======
-                              Navigator.pushNamed(context, "page_manager");
-                            }
-                          } on Exception catch (e) {
-                            print(e);
->>>>>>> df8d6e577a5adcddac342e1f4ad0e75448c9d838
+                            Navigator.pushNamed(context, "page_manager");
                           }
                         },
                       ),
