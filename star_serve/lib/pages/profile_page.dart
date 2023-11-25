@@ -102,6 +102,7 @@ class _ProfilePageState extends State<ProfilePage>
                 context,
                 'Edit Profile',
                     () {
+                  // Navigate to edit_profile.dart
                   Navigator.pushNamed(context, EditProfile.id);
                 },
               ),
@@ -116,6 +117,7 @@ class _ProfilePageState extends State<ProfilePage>
                 context,
                 'Past Activity',
                     () {
+                  // Navigate to past_event.dart
                   Navigator.pushNamed(context, PastEvents.id);
                 },
               ),
@@ -131,6 +133,7 @@ class _ProfilePageState extends State<ProfilePage>
                   ),
                 ),
                 onPressed: () {
+                  // Navigate to the Login Page
                   _auth.signOut();
                   Navigator.popUntil(
                       context, ModalRoute.withName(LoginPage.id));
