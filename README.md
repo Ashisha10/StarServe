@@ -42,3 +42,23 @@ External libraries/APIs:
 -> Google sign-in plugin: To allow users to sign-in with google (https://pub.dev/documentation/google_sign_in/latest/)
 
 -> Calendar API: To allow users to manage events on their Google calendar. (https://developers.google.com/calendar/api/v3/reference)
+
+
+## Requirements
+- Flutter: 3.16.0
+- Dart: 3.2.0
+
+## Installation
+
+1. Clone the repository:
+   git clone https://github.com/Ashisha10/StarServe.git
+ 
+2. Navigate to the project directory:
+   cd StarServe
+
+3. Install dependencies:
+   flutter pub get
+
+4. Run the application:
+   flutter run
+
