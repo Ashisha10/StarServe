@@ -22,7 +22,7 @@ class PastEvents extends StatefulWidget {
 
 class _PastEventsState extends State<PastEvents> with TickerProviderStateMixin {
   final _auth = FirebaseAuth.instance;
-  late User loggedInUser;
+  User? loggedInUser;
 
   void getCurrentUser() async {
     try {
@@ -142,31 +142,31 @@ class _PastEventsState extends State<PastEvents> with TickerProviderStateMixin {
           ),
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        color: lightYellow,
-        buttonBackgroundColor: lightYellow,
-        backgroundColor: Colors.black,
-        onTap: (index) {
-          // Handle navigation based on the index
-        },
-        items: const [
-          Icon(
-            Icons.explore,
-            color: navyBlue,
-            size: 40,
-          ),
-          Icon(
-            Icons.access_time_outlined,
-            color: navyBlue,
-            size: 40,
-          ),
-          Icon(
-            Icons.person,
-            color: navyBlue,
-            size: 40,
-          ),
-        ],
-      ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   color: lightYellow,
+      //   buttonBackgroundColor: lightYellow,
+      //   backgroundColor: Colors.black,
+      //   onTap: (index) {
+      //     // Handle navigation based on the index
+      //   },
+      //   items: const [
+      //     Icon(
+      //       Icons.explore,
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //     Icon(
+      //       Icons.access_time_outlined,
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //     Icon(
+      //       Icons.person,
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

@@ -31,7 +31,7 @@ class _VolunteerPageState extends State<VolunteerPage>
         backgroundColor: lightYellow,
         title: Center(
           child: Text(
-            'Volunteer Requests',
+            'Requests',
             style: appRegularText.copyWith(fontSize: 40.0),
           ),
         ),
@@ -48,6 +48,7 @@ class _VolunteerPageState extends State<VolunteerPage>
                 Text(
                   'Volunteers',
                   style: TextStyle(
+                    color: deepYellow,
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -62,18 +63,18 @@ class _VolunteerPageState extends State<VolunteerPage>
           ),
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        items: [
-          Icon(Icons.explore),
-          Icon(Icons.access_time_outlined),
-          Icon(Icons.person),
-        ],
-        onTap: (index) {
-          // Handle navigation based on the index
-          // For example, you can use a switch statement
-          // to navigate to different pages.
-        },
-      ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   items: [
+      //     Icon(Icons.explore),
+      //     Icon(Icons.access_time_outlined),
+      //     Icon(Icons.person),
+      //   ],
+      //   onTap: (index) {
+      //     // Handle navigation based on the index
+      //     // For example, you can use a switch statement
+      //     // to navigate to different pages.
+      //   },
+      // ),
     );
   }
 

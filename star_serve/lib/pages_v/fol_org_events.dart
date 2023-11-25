@@ -23,7 +23,7 @@ class OngoingEventsVPage extends StatefulWidget {
 class _OngoingEventsVPageState extends State<OngoingEventsVPage>
     with TickerProviderStateMixin {
   final _auth = FirebaseAuth.instance;
-  late User loggedInUser;
+  User? loggedInUser;
 
   void getCurrentUser() async {
     try {
@@ -145,31 +145,31 @@ class _OngoingEventsVPageState extends State<OngoingEventsVPage>
           ),
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        color: lightYellow,
-        buttonBackgroundColor: lightYellow,
-        backgroundColor: Colors.black,
-        onTap: (index) {
-          // Handle navigation based on the index
-        },
-        items: const [
-          Icon(
-            Icons.explore, // use this for explore and ongoing events respectively for org and user
-            color: navyBlue,
-            size: 40,
-          ),
-          Icon(
-            Icons.notifications, // use this button to redirect to the volunteer requests and following respectively for org and user
-            color: navyBlue,
-            size: 40,
-          ),
-          Icon(
-            Icons.person, // profile page
-            color: navyBlue,
-            size: 40,
-          ),
-        ],
-      ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   color: lightYellow,
+      //   buttonBackgroundColor: lightYellow,
+      //   backgroundColor: Colors.black,
+      //   onTap: (index) {
+      //     // Handle navigation based on the index
+      //   },
+      //   items: const [
+      //     Icon(
+      //       Icons.explore, // use this for explore and ongoing events respectively for org and user
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //     Icon(
+      //       Icons.notifications, // use this button to redirect to the volunteer requests and following respectively for org and user
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //     Icon(
+      //       Icons.person, // profile page
+      //       color: navyBlue,
+      //       size: 40,
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
