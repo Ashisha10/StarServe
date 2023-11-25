@@ -1,4 +1,3 @@
-
 import 'package:star_serve/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
@@ -14,10 +13,13 @@ class EditProfile extends StatefulWidget {
   State<EditProfile> createState() => _EditProfileState();
 }
 
-class _EditProfileState extends State<EditProfile>
-    with TickerProviderStateMixin {
+class _EditProfileState extends State<EditProfile> with TickerProviderStateMixin {
+  // Text controller for managing the user's name input
   TextEditingController _nameController = TextEditingController();
+
+  // Text controller for managing the user's "About Me" input
   TextEditingController _aboutMeController = TextEditingController();
+
 
   bool isEditing = false;
 
@@ -46,9 +48,9 @@ class _EditProfileState extends State<EditProfile>
                   isEditing = true;
                   // Load existing data into text fields
                   _nameController.text =
-                      "Existing Name"; // Replace with actual data
+                  "Existing Name"; // Replace with actual data
                   _aboutMeController.text =
-                      "Existing About Me"; // Replace with actual data
+                  "Existing About Me"; // Replace with actual data
                 });
               },
             ),
@@ -68,7 +70,7 @@ class _EditProfileState extends State<EditProfile>
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
-                  color:lightYellow, // Set your color here
+                  color: lightYellow, // Set your color here
                 ),
               ),
               const SizedBox(height: 8.0),
@@ -86,7 +88,7 @@ class _EditProfileState extends State<EditProfile>
                     _nameController
                       ..text = ''
                       ..selection =
-                          TextSelection.fromPosition(TextPosition(offset: 0));
+                      TextSelection.fromPosition(TextPosition(offset: 0));
                   }
                 },
                 decoration: InputDecoration(
@@ -112,7 +114,7 @@ class _EditProfileState extends State<EditProfile>
                     _aboutMeController
                       ..text = ''
                       ..selection =
-                          TextSelection.fromPosition(TextPosition(offset: 0));
+                      TextSelection.fromPosition(TextPosition(offset: 0));
                   }
                 },
                 decoration: InputDecoration(

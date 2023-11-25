@@ -44,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // kGapFiller,
+                // StarServe Logo
                 const SizedBox.square(
                   dimension: 200.0,
                   child: Image(
@@ -52,13 +52,14 @@ class _RegisterPageState extends State<RegisterPage>
                   ),
                 ),
                 kGapFiller,
+                // StarServe Text
                 Text(
                   "StarServe",
                   style: appBranding.copyWith(fontSize: 50.0),
                 ),
                 kGapFiller,
+                // Name Field
                 TextField(
-                  // NAME FIELD
                   onChanged: (value) {
                     name = value;
                   },
@@ -73,8 +74,8 @@ class _RegisterPageState extends State<RegisterPage>
                   ),
                 ),
                 kGapFiller,
+                // Mail Field
                 TextField(
-                  // MAIL FIELD
                   onChanged: (value) {
                     mail = value;
                   },
@@ -89,8 +90,8 @@ class _RegisterPageState extends State<RegisterPage>
                   ),
                 ),
                 kGapFiller,
+                // Password Field
                 TextField(
-                  // PASSWORD FIELD
                   onChanged: (value) {
                     pswd = value;
                   },
@@ -103,19 +104,12 @@ class _RegisterPageState extends State<RegisterPage>
                       Icons.key_rounded,
                       color: navyBlue,
                     ),
-
-                    // Password show and hide functionality
                     suffixIcon: GestureDetector(
                       onTap: () {
-                        if (hidePswd == false) {
-                          setState(() {
-                            hidePswd = true;
-                          });
-                        } else {
-                          setState(() {
-                            hidePswd = false;
-                          });
-                        }
+                        // Password show and hide functionality
+                        setState(() {
+                          hidePswd = !hidePswd;
+                        });
                       },
                       child: Icon(
                         hidePswd
@@ -127,8 +121,8 @@ class _RegisterPageState extends State<RegisterPage>
                   ),
                 ),
                 kGapFiller,
+                // Confirm Password Field
                 TextField(
-                  // CONFIRM PASSWORD FIELD
                   onChanged: (value) {
                     repswd = value;
                   },
@@ -141,19 +135,12 @@ class _RegisterPageState extends State<RegisterPage>
                       Icons.key_rounded,
                       color: navyBlue,
                     ),
-
-                    // Password show and hide functionality
                     suffixIcon: GestureDetector(
                       onTap: () {
-                        if (hidePswd == false) {
-                          setState(() {
-                            hidePswd = true;
-                          });
-                        } else {
-                          setState(() {
-                            hidePswd = false;
-                          });
-                        }
+                        // Password show and hide functionality
+                        setState(() {
+                          hidePswd = !hidePswd;
+                        });
                       },
                       child: Icon(
                         hidePswd
@@ -165,6 +152,7 @@ class _RegisterPageState extends State<RegisterPage>
                   ),
                 ),
                 kGapFiller,
+                // Account Type Selection
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -205,6 +193,7 @@ class _RegisterPageState extends State<RegisterPage>
                     ),
                   ],
                 ),
+                // Registration Button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -214,26 +203,33 @@ class _RegisterPageState extends State<RegisterPage>
                       buttonText: "Create Account",
                       pressedAction: () async {
                         try {
+                          // Show loading animation
                           loaderAnimation(context);
+
+                          // Create a new user with email and password
                           final newUser =
-                              await _auth.createUserWithEmailAndPassword(
+                          await _auth.createUserWithEmailAndPassword(
                             email: mail,
                             password: pswd,
                           );
+
+                          // If user creation is successful, navigate to login page
                           if (newUser != null) {
                             Navigator.pushNamed(context, LoginPage.id);
                           }
                         } on Exception catch (e) {
+                          // Handle exception
                         }
-                        try{
+
+                        try {
+                          // Add user data to Firestore
                           _dbms.collection('users').add({
                             'name': name,
                             'email': mail,
                             'pswd': pswd,
                             'acctyp': g.acctyp,
                           });
-                        }
-                        on Exception catch (e){
+                        } on Exception catch (e) {
                           print(e);
                         }
                       },

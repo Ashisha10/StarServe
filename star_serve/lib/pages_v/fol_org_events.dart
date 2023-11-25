@@ -83,6 +83,7 @@ class _OngoingEventsVPageState extends State<OngoingEventsVPage>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Sample Event Cards, replace with dynamic data
                   CardHolder(
                     showDistance: true,
                     showHeartIcon: false,

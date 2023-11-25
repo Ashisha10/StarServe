@@ -31,14 +31,19 @@ class _OngoingEventsOPageState extends State<OngoingEventsOPage>
 
   void getCurrentUser() async {
     try {
+      // Use the FirebaseAuth instance to get the current user
       final user = await _auth.currentUser;
+
+      // Check if the user is not null before assigning to loggedInUser
       if (loggedInUser != null) {
         loggedInUser = user!;
       }
     } on Exception catch (e) {
+      // Handle exceptions that may occur during user retrieval
       print(e);
     }
   }
+
 
   @override
   void initState() {
@@ -80,6 +85,7 @@ class _OngoingEventsOPageState extends State<OngoingEventsOPage>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Sample Event Cards, replace with dynamic data
                   CardHolder(
                     showHeartIcon: false,
                     showLocIcon: true,

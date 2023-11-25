@@ -38,12 +38,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   String mail = "";
   String pswd = "";
 
-  // void getAccType() async {
-  //   final snap =
-  //       await _dbms.collection("users").where("email", isEqualTo: mail).get();
-  //   g.setOnLogin(snap.docs.single.get("acctyp"));
-  // }
-
+  // Method to build and display the login page UI
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,8 +66,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                     style: appBranding.copyWith(fontSize: 50.0),
                   ),
                   kGapFiller,
+                  // Text field for entering email
                   TextField(
-                    // MAIL FIELD
                     onChanged: (value) {
                       mail = value;
                     },
@@ -87,8 +82,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                     ),
                   ),
                   kGapFiller,
+                  // Text field for entering password
                   TextField(
-                    // PASSWORD FIELD
                     onChanged: (value) {
                       pswd = value;
                     },
@@ -123,6 +118,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                     ),
                   ),
                   kGapFiller,
+                  // Row containing the login button
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -131,6 +127,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         buttonTextCol: kFGColour,
                         buttonText: "Login",
                         pressedAction: () async {
+                          // Attempt to sign in with the provided credentials
                           try {
                             loaderAnimation(context);
                             final user = await _auth.signInWithEmailAndPassword(
@@ -139,6 +136,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             );
 
                             if (user != null) {
+                              // Navigate to the page manager on successful login
                               Navigator.pushNamed(context, "page_manager");
                             }
                           } on Exception catch (e) {
