@@ -25,14 +25,19 @@ class _ProfilePageState extends State<ProfilePage>
 
   void getCurrentUser() async {
     try {
+      // Use the FirebaseAuth instance to get the current user
       final user = await _auth.currentUser;
+
+      // Check if the user is not null before assigning to loggedInUser
       if (loggedInUser != null) {
         loggedInUser = user!;
       }
     } on Exception catch (e) {
+      // Handle exceptions that may occur during user retrieval
       print(e);
     }
   }
+
 
   @override
   void initState() {
@@ -145,6 +150,7 @@ class _ProfilePageState extends State<ProfilePage>
     );
   }
 
+  // Widget to create a row for each functionality
   Widget buildFunctionalityRow(
       BuildContext context, String label, VoidCallback onPressed) {
     return Container(

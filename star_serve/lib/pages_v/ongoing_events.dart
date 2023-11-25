@@ -26,11 +26,15 @@ class _OngoingEventsVPageState extends State<OngoingEventsVPage>  with TickerPro
 
   void getCurrentUser() async {
     try {
+      // Use the FirebaseAuth instance to get the current user
       final user = await _auth.currentUser;
-      if(loggedInUser != null){
+
+      // Check if the user is not null before assigning to loggedInUser
+      if (loggedInUser != null) {
         loggedInUser = user!;
       }
     } on Exception catch (e) {
+      // Handle exceptions that may occur during user retrieval
       print(e);
     }
   }

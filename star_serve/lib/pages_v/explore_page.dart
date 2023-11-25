@@ -63,6 +63,7 @@ class _ExplorePageState extends State<ExplorePage>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Sample Event Cards, replace with dynamic data
                   CardHolder(
                     showDistance: true,
                     showHeartIcon: false,

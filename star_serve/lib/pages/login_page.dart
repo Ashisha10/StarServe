@@ -38,9 +38,10 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   String mail = "";
   String pswd = "";
 
+  // Function to retrieve the account type from Firestore
   void getAccType() async {
     final snap =
-        await _dbms.collection("users").where("email", isEqualTo: mail).get();
+    await _dbms.collection("users").where("email", isEqualTo: mail).get();
     g.setOnLogin(snap.docs.single.get("acctyp"));
   }
 
@@ -126,25 +127,32 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      // Login Button
                       RoundedButton(
                         buttonCol: kBGColour,
                         buttonTextCol: kFGColour,
                         buttonText: "Login",
                         pressedAction: () async {
                           try {
+                            // Show loader animation
                             loaderAnimation(context);
+
+                            // Attempt to sign in with email and password
                             final user = await _auth.signInWithEmailAndPassword(
                               email: mail,
                               password: pswd,
                             );
 
                             if (user != null) {
-                              // getAccType();
+                              // Retrieve account type and navigate to the appropriate page
+                              //getAccType();
                               // String route = "ongoing_events_page_${g.acctyp}";
                               // String route = "ongoing_events_page_v";
                               Navigator.pushNamed(context, ProfilePage.id);
                             }
-                          } on Exception catch (e) {}
+                          } on Exception catch (e) {
+                            // Handle any exceptions during the login process
+                          }
                         },
                       ),
                     ],

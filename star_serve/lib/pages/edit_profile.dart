@@ -13,10 +13,13 @@ class EditProfile extends StatefulWidget {
   State<EditProfile> createState() => _EditProfileState();
 }
 
-class _EditProfileState extends State<EditProfile>
-    with TickerProviderStateMixin {
+class _EditProfileState extends State<EditProfile> with TickerProviderStateMixin {
+  // Text controller for managing the user's name input
   TextEditingController _nameController = TextEditingController();
+
+  // Text controller for managing the user's "About Me" input
   TextEditingController _aboutMeController = TextEditingController();
+
 
   bool isEditing = false;
 
@@ -92,7 +95,7 @@ class _EditProfileState extends State<EditProfile>
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
-                  color:lightYellow, // Set your color here
+                  color: lightYellow, // Set your color here
                 ),
               ),
               const SizedBox(height: 8.0),
